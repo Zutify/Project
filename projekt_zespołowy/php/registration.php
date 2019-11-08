@@ -39,6 +39,27 @@ if (isset($_POST["submit"])) {
         }
     }
 
+    if(!isset($r->email)){
+        $email = $_POST['login'];
+        $r->email['field'] = $login;
+        if(!preg_match("/^[A-Za-z0-9]+\@[.a-z]*\.?zut\.edu\.pl$/D",$email)){
+            $r->email['msg'] = "Niepoprawny email.";
+            $r->error = true;
+        }else{
+            $sql = "SELECT * FROM uzytkownicy WHERE `email`='$email'";
+            $conn = OpenCon();
+            $result = $conn->query($sql);
+            $user = $result->fetch_assoc();
+            CloseCon($conn);
+            if($user){
+                if($user['email'] === $email){
+                    $r->email['msg'] = "Ten email jest zajęty.";
+                    $r->error = true;
+                }
+            }
+        }
+    }
+
     if (!isset($r->password)) {
         $password = $_POST["password"];
         $r->password['field'] = $password;
