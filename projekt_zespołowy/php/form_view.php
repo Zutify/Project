@@ -1,9 +1,8 @@
 <?php
 
 function get_response() {
-    if (isset($_SESSION['response']) && !empty($_SESSION['response'])) {
-        return $_SESSION['response'];
-    } 
+    if (isset($_SESSION['login_response']) && !empty($_SESSION['login_response'])) {
+        return $_SESSION['login_response']; 
     }elseif(isset($_SESSION['register_response']) && !empty($_SESSION['register_response'])){
         return $_SESSION['register_response'];
     }else{
@@ -34,7 +33,7 @@ function check_radio($name, $val) {
 function check_msg($name) {
     if ($r = get_response()) {
         if (isset($r->$name['msg'])) {
-            printf('<tr><td></td><td><p class="form-error">%s</p></td></tr>', $r->$name['msg']);
+            printf('%s', $r->$name['msg']);
         }
     }
 }

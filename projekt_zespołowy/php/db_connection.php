@@ -1,22 +1,22 @@
 <?php
-function OpenCon(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "si_db";
+//To na stronę 000webhost
+// $servername = "localhost";
+// $username = "id11292241_studentzut";
+// $password = "projekt19";
+// $database = "id11292241_projectdatabase";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    return $conn;
+//Moja baza danych ~Bienia
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "id11292241_projectdatabase";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-
-function CloseCon($conn){
-    $conn->close();
-}
-
-
+#echo "Connected successfully";
 ?>

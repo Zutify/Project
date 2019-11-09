@@ -1,0 +1,137 @@
+body {
+    font-family: sans-serif;
+    font-size: 15px
+}
+
+form {
+    background: #fff;
+    padding: 4em 4em 2em;
+    max-width: 500px;
+    margin: 50px auto 0;
+}
+
+label.Error {
+    position: relative;
+    text-align: left;
+}
+
+h2 {
+    margin: 0 0 50px 0;
+    padding: 10px;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 30px;
+    color: darken(#e5e5e5, 50%);
+    border-bottom: solid 1px #e5e5e5;
+}
+
+p {
+    margin: 0 0 3em 0;
+    position: relative;
+}
+
+input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    margin: 0;
+}
+
+input[type="text"], input[type="password"], input[type="email"]{
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    padding: .5em .5em;
+    border-radius: 2px;
+}
+
+input[type="submit"] {
+    background: green;
+    border-radius: 1px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    line-height: 1.7em;
+    margin: 1em 0 0;
+    outline: none;
+    padding: .8em 0;
+    text-shadow: 0 1px;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(23, 11, 90);
+    color: rgb(255, 255, 255);
+}
+
+label {
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    color: #999;
+    font-size: 16px;
+    display: inline-block;
+    padding: 4px 10px;
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+label.floatLabel {
+    top: -11px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+a.spButtons {
+    background: green;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1em;
+    line-height: 1.7em;
+    width: 150px;
+    margin: 1em 0 0;
+    outline: none;
+    padding: .8em 0;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.5s;
+}
+
+.spButtons:hover {
+    background-color: rgb(23, 11, 90);
+    color: rgb(255, 255, 255);
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 5px;
+}
+
+.c1 {
+    width: 25%
+}
+
+.c2 {
+    width: 25%;
+}
+
+div.spButtonsContainer {
+    position: absolute;
+    height: 200px;
+    width: 900px;
+    margin: -100px 0 0 -200px;
+    top: 50%;
+    left: 50%;
+}
