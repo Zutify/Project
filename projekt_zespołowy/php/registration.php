@@ -99,9 +99,26 @@ if (isset($_POST["submit"])) {
         unset($_SESSION['register_response']);
         $person = $_POST;
         $person['password'] = md5($person['password']);
-        $sql = "INSERT INTO User VALUES (NULL, '$person[firstName]', '$person[lastName]', '$person[login]', '$person[password]','$person[email]', '$person[phoneNumber]');";
+
+        $person['login'] = htmlentities($person['login'],ENT_QUOTES,'UTF-8');
+        $person['password'] = htmlentities($person['password'],ENT_QUOTES,'UTF-8');
+        $person['firstName'] = htmlentities($person['firstName'],ENT_QUOTES,'UTF-8');
+        $person['lastName'] = htmlentities($person['lastName'],ENT_QUOTES,'UTF-8');
+        $person['email'] = htmlentities($person['email'],ENT_QUOTES,'UTF-8');
+        $person['phoneNumber'] = htmlentities($person['phoneNumber'],ENT_QUOTES,'UTF-8');
+
+
+        #$sql = "INSERT INTO User VALUES (NULL, '$person[firstName]', '$person[lastName]', '$person[login]', '$person[password]','$person[email]', '$person[phoneNumber]');";
         #$conn = OpenCon();
-        $conn->query($sql);
+        $conn->query(sprintf("INSERT INTO User VALUES 
+                    (NULL, '%s', '%s', '%s', '%s', '%s', '%s');",
+            mysqli_real_escape_string($conn,$person['firstName']),
+            mysqli_real_escape_string($conn,$person['lastName']),
+            mysqli_real_escape_string($conn,$person['login']),
+            mysqli_real_escape_string($conn,$person['password']),
+            mysqli_real_escape_string($conn,$person['email']),
+            mysqli_real_escape_string($conn,$person['phoneNumber'])));
+        #$conn->query($sql);
         #$conn->close();
         
         #CloseCon($conn);
