@@ -1,0 +1,142 @@
+User table
+1. Sprawdzenie istnienia loginu
+	Select * from User where Login = $_POST['login']
+2. Sprawdzenie istnienia emaila
+	Select * from User where Email = $_POST['email']
+3. Wstawienie rekordu
+	Insert into User values (null, $_POST['name'], $_POST['surname'], $_POST['login'], $_POST['password'], $_POST['email'],$_POST['phoneNumber']) 
+4. Pobranie hasła
+	Select Password from User where Login = $_POST['login']
+5. Pobranie imienia
+	Select Name from User where Login = $_POST['login']
+6. Pobranie nazwiska
+	Select Surname from User where Login = $_POST['login']
+7. Usuwanie rekordu
+	Delete from User where Login = $_POST['login']
+8. Aktualizowanie rekordu - opcja kompleksowa
+	Update User set `ID`=$_POST['id'],`Name`=$_POST['name'],`Surname`=$_POST['surname'],`Login`=$_POST['login'],`Password`=$_POST['password'],`Email`=$_POST['email'],`PhoneNumber`=$_POST['phoneNumber'] WHERE Login = $_POST['login']
+
+Address table
+1. Sprawdzenie istnienia adresu po koordynatach
+	Select * from Address where CoordX = $coordX and CoordY = $coordY
+2. Sprawdzenie istnienia adresu po nazwie ulicy i numerze lokalu
+	Select * from Address where Street = $_POST['street'] and Local = $_POST['local']
+3. Wstawienie rekordu
+	Insert into Address values (null, $_POST['street'], $_POST['local'], $coordX, $coordY)
+4. Pobranie ID
+	Select ID from Address where Street = $_POST['street'] and Local = $_POST['local'] / opcjonalnie po współrzędnych: .. where CoordX = $coordX and CoordY = $coordY
+5. Pobranie współrzędnych po nazwie ulicy i lokalu
+	Select CoordX, CoordY where Street = $_POST['street'] and Local = $_POST['local']
+6. Pobranie nazwy ulicy i numeru lokalu po współrzędnych
+	Select Street, Local where CoordX = $coordX and CoordY = $coordY
+7. Usuwanie rekordu po współrzędnych
+	Delete from Address where CoordX = $coordX and CoordY = $coordY
+8. Usuwanie rekordu po nazwie ulicy i lokalu
+	Delete from Address where Street = $_POST['street'] and Local = $_POST['local']
+
+
+RideInfo table
+1. Sprawdzenie informacji o odjeździe do danego miejsca
+	Select * from RideInfo where Destination in
+		( Select ID from Address where Street = $_POST['street'])
+2. Sprawdzenie informacji o odjeździe do danego miejsca o danej godzinie 
+( $additionalTime to jakiś czas jaki użytkownik może podać na stronie żeby mu wyszukało przejazdy od obecnej godziny do np +2h)
+	Select * from RideInfo where Destination in
+		( Select ID from Address where Street = $_POST['street'])
+		and (LeavingTime >= $_POST['leaveTime'] and LeavingTime <= ($_POST['leaveTime'] + $additionalTime) )
+3. Sprawdzenie informacji o odjeździe z danego miejsca
+	Select * from RideInfo where Start in
+		( Select ID from Address where Street = $_POST['street'])
+4. Sprawdzenie informacji o odjeździe z danego miejsca o danej godzinie 
+( $additionalTime to jakiś czas jaki użytkownik może podać na stronie żeby mu wyszukało przejazdy od obecnej godziny do np +2h)
+	Select * from RideInfo where Start in
+		( Select ID from Address where Street = $_POST['street'])
+		and (LeavingTime >= $_POST['leaveTime'] and LeavingTime <= ($_POST['leaveTime'] + $additionalTime) )
+5. Sprawdzenie ilości wolnych miejsc w samochodzie do danego miejsca
+	Select Places from RideInfo where Destination in
+		( Select ID from Address where Street = $_POST['street'])
+6. Sprawdzenie ilości wolnych miejsc w samochodzie z danego miejsca
+	Select Places from RideInfo where Start in
+		( Select ID from Address where Street = $_POST['street'])
+7. Sprawdzenie odjazdów w danym dniu
+	Select * from RideInfo where Date = $_POST['date']
+8. Sprawdzenie odjazdów w danym dniu o danej porze
+	Select * from RideInfo where Date = $_POST['date'] and
+	(LeavingTime >= $_POST['leaveTime'] and LeavingTime <= ($_POST['leaveTime'] + $additionalTime) )
+9. Sprawdzenie odjazdów w danym dniu o danej porze z danego miejsca
+	Select * from RideInfo where Date = $_POST['date'] and
+	(LeavingTime >= $_POST['leaveTime'] and LeavingTime <= ($_POST['leaveTime'] + $additionalTime) )
+	and Start in
+		( Select ID from Address where Street = $_POST['street'])
+10. Sprawdzenie odjazdów w danym dniu o danej porze do danego miejsca
+	Select * from RideInfo where Date = $_POST['date'] and
+	(LeavingTime >= $_POST['leaveTime'] and LeavingTime <= ($_POST['leaveTime'] + $additionalTime) )
+	and Destination in
+		( Select ID from Address where Street = $_POST['street'])
+11. Wstawianie rekordu - poprzedzone sprawdzeniem czy dane adresy nie istnieją w tabeli Address
+i jeśli nie istnieją to należy wstawić dwa rekordy, jeden dla celu i jeden z miejsca wyjazdu, a następnie pobrać ich ID i dopiero wykonać to zapytanie
+	Insert into RideInfo values (null, $driverID, $_POST['date'], $startID, $destID, $_POST['places'], $_POST['leavingTime'])
+12. Zapytanie o ID przejazdu po miejscu destynacji / po miejscu odjazdu
+	Select ID from RideInfo where Destination / Start in 
+		(Select ID from Address where Street = $_POST['street'])
+13. Zmniejszenie lub zwiększenie liczby miejsc dla danego przejazdu - najpierw zapytanie o ID przejazdu o który nam chodzi
+	Update RideInfo set Places = $_POST['places'] where ID = $rideID
+14. Zmiana czasu odjazdu - najpierw zapytanie o ID przejazdu o który nam chodzi
+	Update RideInfo set LeavingTime = $_POST['leavingTime'] where ID = $rideID
+15. Sprawdzenie liczby przejazdów danego kierowcy - po ID kierowcy lub po imieniu i nazwisku
+	Select count(ID) from RideInfo where Driver = $driverID
+	/ where Driver in
+		(select ID from User where Name = $name and Surname = $surname)
+16. Sprawdzenie kiedy i jakie przejazdy odbył kierowca - po ID kierowcy lub imie i nazwisko
+	Select Date,Start, Destination from RideInfo where Driver = $driverID
+	/ where Driver in 
+		(select ID from User where Name = $name and Surname = $surname)
+
+	- dowiedzenie sie skąd i dokąd te podróże były
+	Select Street from Address where ID = $startID / $destinationID ( <- z poprzedniego zapytania)
+
+Rating table
+1. Sprawdzenie średniej oceny dla przejazdu - przejazd wyszukiwany po dacie, czasie odjazdu i adresie odjazdu / przyjazdu
+	Select AVG(Mark) from Rating where RideID in 
+		(Select ID from RideInfo where Date = $_POST['date'] and LeavingTime = $_POST['leavingTime'] and
+		Start / Destination in
+			(Select ID from Address where Street = $_POST['street']))
+2. Sprawdzenie ilości ocen dla przejazdu - przejazd wyszukiwany po dacie, czasie odjazdu i adresie odjazdu / przyjazdu
+	Select COUNT(Mark) from Rating where RideID in 
+		(Select ID from RideInfo where Date = $_POST['date'] and LeavingTime = $_POST['leavingTime'] and
+		Start / Destination in
+			(Select ID from Address where Street = $_POST['street']))
+3. Sprawdzenie jakie oceny wystawiał dany użytkownik - użytkownik po loginie / imieniu / nazwisku / emailu
+	Select Mark from Rating where UserID in
+		(Select ID from User where Login = $_POST['login'] / Name = $_POST['name'] / Surname = $_POST['surname'] / Email = $_POST['email'])
+4. Wstawienie rekordu - wcześniej trzeba mieć info o ID przejazdu który chcemy ocenić i ID usera który wystawia ocene
+	Insert into Rating values (null, $rideID, $userID, $_POST['mark'])
+5. Aktualizowanie oceny - trzeba mieć ID oceny / albo ID przejazdu i ID usera
+	Update Rating set Mark = $_POST['mark'] where ID = $id / where RideID = $rideID and UserID = $userID
+6. Usuwanie rekordu po ID / po ID przejazdu i ID usera
+	Delete from Rating where ID = $id / where RideID = $rideID and UserID = $userID
+
+
+Notification table
+1. Sprawdzenie treści wszystkich powiadomień do danego przejazdu - trzeba mieć ID przejazdu który nas interesuje
+	Select Comment from Notification where RideID = $rideID
+2. Sprawdzenie ilości powiadomień do danego przejazdu - trzeba mieć ID przejazdu
+	Select count(Comment) from Notification where Ride = $rideID
+3. Sprawdzenie ilości powiadomień od danego użytkownika  - trzeba mieć ID usera
+	Select count(Comment) from Notification where UserID = $userID
+4. Przekazanie powiadomień do kierowcy (sprawdzenie do kogo przekazać)
+	- pobranie wiadomosci o ID przejazdu do danego miejsca o danym czasie
+	Select ID from RideInfo where Destination in
+		(Select ID from Address where Street = $street and LeavingTime = $leavingTime)
+	
+	- zapytanie o kierowce 
+	Select Driver from RideInfo where ID = $rideID ( <- z poprzedniego zapytania)
+	
+	- zapytanie o komentarze 
+	Select comment from Notification where RideID = $rideID ( <- z pierwszego zapytania) 
+5. Aktualizowanie komentarza - po ID rekordu lub po ID przejazdu i użytkownika
+	Update Notification set Comment = $_POST['comment'] where ID = $notificationID
+	/ where RideID = $rideId and UserID = $userID
+6. Usuwanie rekordu - po ID rekordu lub po ID przejazdu i ID użytkownika
+	Delete from Notification where ID = $id / where RideID = $rideId and UserID = $userID
+7. Wstawianie rekordu
