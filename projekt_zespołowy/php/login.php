@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
         // $_SESSION['userid']=$user['userid'];
         // $_SESSION['username']=$user['name'];
         // $_SESSION['permissions']=$user['permissions'];;
-        header('Location: ../page/menu.php');
+        header('Location: ../page/rideMenu.php');
     }else {
         $_SESSION['login_response'] = $r;
         header('Location: ../page/login.php');
