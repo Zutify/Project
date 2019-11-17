@@ -13,34 +13,55 @@ https://fontawesome.com/v4.7.0/icon/
 -->
 
 <div class="container-fluid" style="min-width: 250px;">
-    <div class="w-100 h-50 " id="googleMap">
-        <script>
-            function myMap() {
-            var mapProp= {
-              center:new google.maps.LatLng(53.4344,14.5410),
-              zoom:13,
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            }
-        </script>
-        
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&callback=myMap"></script>
+    <div class="w-100 d-flex justify-content-between">
+        <div class="d-inline-block mt-5 mb-5 ml-5">
+            <a href="../page/menu.php" class="h4 text-dark">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Wstecz
+            </a>
+        </div>
+        <div class="d-inline-block mr-5 mt-5">
+            <button type="button" class="btn">
+                <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
+            </button>
+        </div>
     </div>
     
     <div class="w-100 h-50">
         
         <div class="ml-5 mt-5">
-            <div class="h2">Dokąd jedziemy?</div>
+            <div class="display-2" ><strong>Dokąd jedziemy?</strong></div>
         </div>
         
         <!-- kontener zawierający opcje do wyboru pod mapą -->
         <div class="w-75 mx-auto">
-            <div class="text-center mt-5 shadow p-3 mb-5 bg-white rounded">
+            <div class="mt-5 shadow p-3 mb-5 bg-light rounded">
                 <button type="button" class="btn btn-lg btn-block">
-                    <div class="h3">
+                    <div class="h3 text-left">
+                        <i class="fa fa-compass" style="font-size: 36px;"></i>
+                        <a href=""class="ml-3 text-dark">
+                            Miejsce wyjazdu
+                        </a>
+                    </div>
+                </button>
+            </div>
+            <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
+                <button type="button" class="btn btn-lg btn-block">
+                    <div class="h3 text-left">
                         <i class="fa fa-search" style="font-size: 36px;"></i>
                         <a href=""class=" ml-3 text-dark">
-                            Szukaj miejsca docelowego
+                            Miejsce docelowe
+                        </a>
+                    </div>
+                </button>
+            </div>
+            
+            <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
+            <div class="position-fixed" style="top: 405; right: 260;">
+                <button type="button" class="btn btn-lg btn-block">
+                    <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
+                        <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>
+                        <a href="">
                         </a>
                     </div>
                 </button>
@@ -54,9 +75,20 @@ https://fontawesome.com/v4.7.0/icon/
                 </div>
             </div>
             
+            <div class="my-5 d-flex justify-content-between">
+                <div>
+                    <div class="h2">Data i godzina</div>
+                </div>
+                <div class="">
+                    <a href="../page/rideInfo.php" type="button" class="btn text-white btn-lg bg-primary rounded">SZUKAJ</a>
+                </div>
+                
+            </div>
+            <div class="border-bottom border-dark"></div>
+            
             <table class="table-borderless w-100">
                 <tr>
-                    <td class="border-bottom border-dark">
+                    <td class="">
                         <div class="h3 my-4">
                             <i class="fa fa-star" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Ulubione miejsca</a>
@@ -64,7 +96,7 @@ https://fontawesome.com/v4.7.0/icon/
                     </td>
                 </tr>
                 <tr>
-                    <td class="border-bottom border-dark">
+                    <td class="">
                         <div class="h3 my-4 ml-2"> 
                             <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Ostatnio wyszukiwane</a>
@@ -72,7 +104,7 @@ https://fontawesome.com/v4.7.0/icon/
                     </td>
                 </tr>
                 <tr>
-                    <td class="border-bottom border-dark">
+                    <td class="">
                         <div class="h3 my-4">
                             <i class="fa fa-car" aria-hidden="true" style="font-size: 28px;"></i>
                             <a href="" class="ml-3 text-dark">Aktualne przejazdy</a>
@@ -80,7 +112,7 @@ https://fontawesome.com/v4.7.0/icon/
                     </td>
                 </tr>
                 <tr>
-                    <td class="border-bottom border-dark">
+                    <td class="">
                         <div class="h3 my-4 ml-2">
                             <i class="fa fa-plus" aria-hidden="true" style="font-size: 28px;"></i>
                             <a href="" class="ml-3 text-dark">Dodaj przejazd</a>
