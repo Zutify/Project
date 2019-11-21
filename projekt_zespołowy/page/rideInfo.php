@@ -22,7 +22,9 @@ https://fontawesome.com/v4.7.0/icon/
         </div>
         <div class="d-inline-block mr-5 mt-5">
             <button type="button" class="btn">
-                <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
+                <a href="../page/sideMenu.php" class="text-body">
+                    <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
+                </a>
             </button>
         </div>
     </div>

@@ -11,7 +11,10 @@ include '../php/form_view.php';
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="mt-5 mb-5 ml-5">
-        <a href="../../index.php" class="h4 text-dark">Wstecz</a>
+        <a href="../../index.php" class="h4 text-dark">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            Wstecz
+        </a>
     </div>
     
     <div class="mt-5 mb-5 ml-5">
@@ -22,14 +25,14 @@ include '../php/form_view.php';
     
     <div class="w-75 mx-auto ">
         
-        <form onsubmit="return przedWyslaniem()" action="../php/registration2.php" method="post">
+        <form onsubmit="return przedWyslaniem()" action="../php/registration.php" method="post">
             
             <div class="mt-5 mb-3">
                 <label for="login" class="h3">Login</label>
             </div>
                     
             <div >
-                <input id="login" type="text" name="login" class="form-control form-control-lg" <?php check_input('login'); ?>>
+                <input id="login" type="text" name="login" class="form-control form-control-lg" style="height: 80px;"<?php check_input('login'); ?>>
             </div>
                    
             <div>
@@ -43,7 +46,7 @@ include '../php/form_view.php';
                 
                     
             <div >
-                <input id="firstName" type="text" name="firstName" class="form-control form-control-lg" <?php check_input('firstName'); ?>>
+                <input id="firstName" type="text" name="firstName" class="form-control form-control-lg" style="height: 80px;" <?php check_input('firstName'); ?>>
             </div>
                     
                 
@@ -58,7 +61,7 @@ include '../php/form_view.php';
                 
                     
             <div >
-                <input id="lastName" type="text" name="lastName" class="form-control form-control-lg" <?php check_input('lastName'); ?>>
+                <input id="lastName" type="text" name="lastName" class="form-control form-control-lg" style="height: 80px;"<?php check_input('lastName'); ?>>
             </div>
                     
                 
@@ -72,7 +75,7 @@ include '../php/form_view.php';
                 
                     
             <div >
-                <input id="email" type="email" name="email" class="form-control form-control-lg" <?php check_input('email'); ?>>
+                <input id="email" type="email" name="email" class="form-control form-control-lg" style="height: 80px;"<?php check_input('email'); ?>>
             </div>
                     
                 
@@ -87,7 +90,7 @@ include '../php/form_view.php';
                 
                     
             <div >
-                <input id="password" type="password" name="password" class="form-control form-control-lg" <?php check_input('password'); ?>>
+                <input id="password" type="password" name="password" class="form-control form-control-lg" style="height: 80px;"<?php check_input('password'); ?>>
             </div>
                     
                 
@@ -102,7 +105,7 @@ include '../php/form_view.php';
                 
                     
             <div >
-                <input id="phoneNumber" type="text" name="phoneNumber" class="form-control form-control-lg" <?php check_input('phoneNumber'); ?>>
+                <input id="phoneNumber" type="text" name="phoneNumber" class="form-control form-control-lg" style="height: 80px;" <?php check_input('phoneNumber'); ?>>
             </div>
                     
                 
@@ -111,7 +114,7 @@ include '../php/form_view.php';
             </div>
                     
             <div class="mt-5 mb-3">
-                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 80px;">
+                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 50px;">
             </div>
         </form>
     </div>

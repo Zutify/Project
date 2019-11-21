@@ -11,7 +11,10 @@ include '../php/db_connection.php';
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="mt-5 mb-5 ml-5">
-        <a href="../../index.php" class="h4 text-dark">Wstecz</a>
+        <a href="../../index.php" class="h4 text-dark">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            Wstecz
+        </a>
     </div>
     
     <div class="mt-5 mb-5 ml-5">
@@ -29,7 +32,7 @@ include '../php/db_connection.php';
             </div>
                     
             <div >
-                <input type="text" name="email" id="email" class="form-control form-control-lg" <?php check_input('email'); ?>>
+                <input type="text" name="email" id="email" class="form-control form-control-lg" style="height: 80px;"<?php check_input('email'); ?>>
             </div>
                    
             <div>
@@ -43,7 +46,7 @@ include '../php/db_connection.php';
                 
                     
             <div >
-                <input type="password" name="password" id="password" class="form-control form-control-lg"<?php check_input('password'); ?>>
+                <input type="password" name="password" id="password" class="form-control form-control-lg" style="height: 80px;"<?php check_input('password'); ?>>
             </div>
                     
                 
@@ -61,7 +64,7 @@ include '../php/db_connection.php';
                 
                     
             <div>
-                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 80px;">
+                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 52px;">
             </div>
                     
                 
