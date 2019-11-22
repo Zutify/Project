@@ -1,6 +1,7 @@
 <?php
 include 'db_connection.php';
 
+
 if (isset($_POST["submit"])) {
     session_start();
 
@@ -107,6 +108,9 @@ if (isset($_POST["submit"])) {
         $person['email'] = htmlentities($person['email'],ENT_QUOTES,'UTF-8');
         $person['phoneNumber'] = htmlentities($person['phoneNumber'],ENT_QUOTES,'UTF-8');
 
+        $vkey = md5(time().$person['login']);
+        $verified = 0;
+        $createdate = date_default_timezone_get();
 
         #$sql = "INSERT INTO User VALUES (NULL, '$person[firstName]', '$person[lastName]', '$person[login]', '$person[password]','$person[email]', '$person[phoneNumber]');";
         #$conn = OpenCon();
@@ -120,7 +124,13 @@ if (isset($_POST["submit"])) {
             mysqli_real_escape_string($conn,$person['phoneNumber'])));
         #$conn->query($sql);
         #$conn->close();
-        
+
+        $link = "http://zutify.000webhostapp.com/php/confirmation.php?vkod=".$vkey;
+        $vkey = md5(time().$person['login']);
+        if(mail("sahibjot.yirmeyah@iiron.us", "subject", "$link", "sahibjot.yirmeyah@iiron.us")){
+
+        }
+
         #CloseCon($conn);
         #echo 'poprawne dane';
         header('Location: ../page/login.php');
