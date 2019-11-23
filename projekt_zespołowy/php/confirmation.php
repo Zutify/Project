@@ -1,21 +1,17 @@
 <?php
 include 'db_connection.php';
 
-$vk = $_GET['vkey'];
-
-$sql = "SELECT * FROM TABELA WHERE Vkey = $vk AND Verified = 0 LIMIT 1;";
+$vk = $_GET['vkod'];
+$sql = "SELECT * FROM Verify WHERE `Vkey` LIKE '$vk' AND `Verified` = 0 LIMIT 1;";
 $result = $conn->query($sql);
+echo $result->num_rows;
 if($result->num_rows == 1){
-    $row = $result->fetch_assoc();
-    $sql = "UPDATE TABLEA SET Verified = 1 WHERE Vkey = $vk AND Verified = 0;";
+    $sql = "UPDATE Verify SET `Verified` = 1 WHERE `Vkey` LIKE '$vk' AND `Verified` = 0;";
+    $conn->query($sql);
     echo "Udana weryfikacja";
 }else{
     echo "Blad weryfikacji";
 }
-
-
-
-
 
 ?>
 

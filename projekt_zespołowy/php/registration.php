@@ -125,9 +125,16 @@ if (isset($_POST["submit"])) {
         #$conn->query($sql);
         #$conn->close();
 
-        $link = "http://zutify.000webhostapp.com/php/confirmation.php?vkod=".$vkey;
+
         $vkey = md5(time().$person['login']);
-        if(mail("sahibjot.yirmeyah@iiron.us", "subject", "$link", "sahibjot.yirmeyah@iiron.us")){
+        $link = "<a href = 'http://zutify.000webhostapp.com/php/confirmation.php?vkod=$vkey'>Link</a>";;
+        $id = mysqli_insert_id($conn);
+
+
+        $sql = "INSERT INTO Verify VALUES ('$id','$vkey','0')";
+        $conn->query($sql);
+
+        if(mail("nivin.elwyn@iiron.us", "subject", "$link", "nivin.elwyn@iiron.us")){
 
         }
 
