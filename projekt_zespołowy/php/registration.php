@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-
 if (isset($_POST["submit"])) {
     session_start();
 
@@ -108,9 +107,6 @@ if (isset($_POST["submit"])) {
         $person['email'] = htmlentities($person['email'],ENT_QUOTES,'UTF-8');
         $person['phoneNumber'] = htmlentities($person['phoneNumber'],ENT_QUOTES,'UTF-8');
 
-        $vkey = md5(time().$person['login']);
-        $verified = 0;
-        $createdate = date_default_timezone_get();
 
         #$sql = "INSERT INTO User VALUES (NULL, '$person[firstName]', '$person[lastName]', '$person[login]', '$person[password]','$person[email]', '$person[phoneNumber]');";
         #$conn = OpenCon();
@@ -124,20 +120,22 @@ if (isset($_POST["submit"])) {
             mysqli_real_escape_string($conn,$person['phoneNumber'])));
         #$conn->query($sql);
         #$conn->close();
-
-
+        
         $vkey = md5(time().$person['login']);
         $link = "<a href = 'http://zutify.000webhostapp.com/php/confirmation.php?vkod=$vkey'>Link</a>";;
+
+
         $id = mysqli_insert_id($conn);
-
-
         $sql = "INSERT INTO Verify VALUES ('$id','$vkey','0')";
         $conn->query($sql);
-
+        
+        #https://www.tempmailaddress.com/ tutaj tworzy sie 5min miala 
         if(mail("nivin.elwyn@iiron.us", "subject", "$link", "nivin.elwyn@iiron.us")){
 
         }
 
+        
+        
         #CloseCon($conn);
         #echo 'poprawne dane';
         header('Location: ../page/login.php');

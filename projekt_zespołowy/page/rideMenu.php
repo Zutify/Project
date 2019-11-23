@@ -37,23 +37,23 @@ https://fontawesome.com/v4.7.0/icon/
         
         <!-- kontener zawierający opcje do wyboru pod mapą -->
         <div class="w-75 mx-auto">
-            <div class="mt-5 shadow p-3 mb-5 bg-light rounded">
+            <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
                 <button type="button" class="btn btn-lg btn-block">
                     <div class="h3 text-left">
-                        <i class="fa fa-compass" style="font-size: 36px;"></i>
-                        <a href=""class="ml-3 text-dark">
-                            Miejsce wyjazdu
-                        </a>
+                        <div class="col-10">
+                            <i class="fa fa-search" style="font-size: 36px;"></i>
+                            <input id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                        </div>
                     </div>
                 </button>
             </div>
             <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
                 <button type="button" class="btn btn-lg btn-block">
                     <div class="h3 text-left">
-                        <i class="fa fa-search" style="font-size: 36px;"></i>
-                        <a href=""class=" ml-3 text-dark">
-                            Miejsce docelowe
-                        </a>
+                        <div class="col-10">
+                            <i class="fa fa-compass" style="font-size: 36px;"></i>
+                            <input id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                        </div>
                     </div>
                 </button>
             </div>

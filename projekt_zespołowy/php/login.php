@@ -17,18 +17,27 @@ if (isset($_POST["submit"])) {
         }
     }
 
+    // sprawdzenie po mailu lub po loginie
     if (!isset($r->email)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $r->email['field'] = $email;
         $r->password['field'] = $password;
-        $sql = "SELECT * FROM user WHERE `email`='$email'";
-        //$conn = OpenCon();
+        $sql = "SELECT * FROM User WHERE `Email`='$email' or `Login` = '$email'";
+       
         $result = $conn->query($sql);
         $user = $result->fetch_assoc();
-        //CloseCon($conn);
+       
         if($user){
             if($user['Email'] === $email){
+                $hash = md5($password);
+                if(!($user['Password']===$hash)){
+                    $r->error = true;
+                    $r->email['msg'] = "Niepoprawne dane logowania";
+
+                }
+            }
+            else if($user['Login'] === $email){
                 $hash = md5($password);
                 if(!($user['Password']===$hash)){
                     $r->error = true;
@@ -46,16 +55,18 @@ if (isset($_POST["submit"])) {
     if(!$r->error) {
         unset($_SESSION['login_response']);
 
-        // $_SESSION['isloggedin']=true;
-        // $sql = "SELECT * FROM user WHERE `Login`='$email'";
-        // $conn = OpenCon();
-        // $result = $conn->query($sql);
-        // $user = $result->fetch_assoc();
-        // CloseCon($conn);
-        // $_SESSION['userid']=$user['userid'];
-        // $_SESSION['username']=$user['name'];
-        // $_SESSION['permissions']=$user['permissions'];;
-        header('Location: ../page/rideMenu.php');
+        // dodanie do zmiennej sesyjnej informacji o zalogowaniu
+        // oraz o imieniu zalogowanego użytkownika
+            $_SESSION['isLogged']=true;
+            
+            $sql2 = "SELECT * FROM User WHERE `Email`='$email' or `Login` = '$email'";
+            $result2 = $conn->query($sql2);
+            $user2 = $result2->fetch_assoc();
+            
+            $_SESSION['userID']=$user2['ID'];
+            $_SESSION['username']=$user2['Name'];
+            
+        header('Location: ../page/menu.php');
     }else {
         $_SESSION['login_response'] = $r;
         header('Location: ../page/login.php');

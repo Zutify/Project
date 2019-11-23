@@ -4,6 +4,7 @@ session_start();
 include '../php/form_view.php';
 include '../php/detectmobilebrowser.php';
 include '../php/db_connection.php';
+include '../php/user_data.php';
 ?>
 <!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
@@ -40,7 +41,9 @@ https://fontawesome.com/v4.7.0/icon/
                              E-mail
                          </div>
                          <div class="col-8">
-                            <input id="profileEmail" placeholder="aa41111@zut.edu.pl" class="display-inline-block" style="background: transparent; border:none; font-color: black;">
+                             <?php
+                                echo '<input id="profileEmail" placeholder="'.$Email.'" class="display-inline-block" style="background: transparent; border:none; font-color: black;">'
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -52,7 +55,9 @@ https://fontawesome.com/v4.7.0/icon/
                              Imię
                          </div>
                          <div class="col-8">
-                            <input id="profileName" placeholder="Alicja" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">
+                             <?php
+                             echo '<input id="profileName" placeholder="'.$Name.'" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
+                            ?>
                         </div>    
                     </div>
                 </div>

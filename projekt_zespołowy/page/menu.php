@@ -17,7 +17,18 @@ https://fontawesome.com/v4.7.0/icon/
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 py-5 pl-5">
         <div class="display-3 font-weight-bold">
-            Witaj Rafał
+            Witaj 
+            <?php
+                if(isset($_SESSION['isLogged']))
+                {
+                    if(isset($_SESSION['username']))
+                    {
+                        echo $_SESSION['username'];
+                    }
+                }
+                else
+                    echo "BŁĄD";
+            ?>
             <div class="float-right mr-5 mt-3">
                 <button type="button" class="btn">
                     <a href="../page/sideMenu.php" class="text-body">
@@ -37,7 +48,7 @@ https://fontawesome.com/v4.7.0/icon/
     
     <div class="w-75 mx-auto mt-5">
         <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-            <a href="" class="text-white h3">
+            <a href="../page/rideAdd.php" class="text-white h3">
                 DODAJ PRZEJAZD
             </a>
         </button>

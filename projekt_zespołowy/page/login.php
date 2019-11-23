@@ -36,7 +36,7 @@ include '../php/db_connection.php';
             </div>
                    
             <div>
-                <label  ><?php check_msg('email'); ?></label>
+                <label class="h4 text-danger"><?php check_msg('email'); ?></label>
             </div>
                 
             
@@ -51,7 +51,7 @@ include '../php/db_connection.php';
                     
                 
             <div >
-                <label ><?php check_msg('password'); ?></label>
+                <label class="h4 text-danger"><?php check_msg('password'); ?></label>
             </div>
                 
             <div class=" mt-3 mb-5 d-flex justify-content-end">

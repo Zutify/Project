@@ -20,7 +20,17 @@ https://fontawesome.com/v4.7.0/icon/
             <i class="fa fa-user-circle-o" class="d-inline-block" style="color:green; font-size: 150px; " aria-hidden="true"></i>
             <div class="d-inline-block ml-5">
                 <div class="h1" id="userName">
-                    Imię
+                    <?php
+                        if( isset($_SESSION['isLogged']))
+                        {
+                            if(isset($_SESSION['username']))
+                            {
+                                echo $_SESSION['username'];
+                            }
+                        }
+                        else
+                            echo "BŁĄD";
+                    ?>
                 </div>
                 <div class="py-2">
                     <a href="../page/editProfile.php" class="h3 text-body">
@@ -28,7 +38,7 @@ https://fontawesome.com/v4.7.0/icon/
                     </a>
                 </div>
                 <div class="py-2">
-                    <a href="../index.php" class="h3 text-body">
+                    <a href="../php/logout.php" class="h3 text-body">
                         Wyloguj
                     </a>
                 </div>
@@ -49,14 +59,14 @@ https://fontawesome.com/v4.7.0/icon/
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="../page/rideMenu.php" class="text-body">Szukaj przejazdu</a>
+                        <a href="../page/rideAdd.php" class="text-body">Dodaj przejazd</a>
                     </strong>
                 </div>
             </div>
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="" class="text-body">Dodaj przejazd</a>
+                        <a href="../page/rideMenu.php" class="text-body">Szukaj przejazdu</a>
                     </strong>
                 </div>
             </div>

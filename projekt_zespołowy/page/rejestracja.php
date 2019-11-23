@@ -36,7 +36,7 @@ include '../php/form_view.php';
             </div>
                    
             <div>
-                <label ><?php check_msg('login'); ?></label>
+                <label class="h4 text-danger"><?php check_msg('login'); ?></label>
             </div>
                 
             
@@ -51,7 +51,7 @@ include '../php/form_view.php';
                     
                 
             <div >
-                <label><?php check_msg('firstName'); ?></label>
+                <label class="h4 text-danger"><?php check_msg('firstName'); ?></label>
             </div>
                 
 	
@@ -66,7 +66,7 @@ include '../php/form_view.php';
                     
                 
             <div >
-                <label><?php check_msg('lastName'); ?></label>
+                <label class="h4 text-danger"><?php check_msg('lastName'); ?></label>
             </div>
             
             <div class="mt-5 mb-3">
@@ -80,7 +80,7 @@ include '../php/form_view.php';
                     
                 
             <div >
-                <label id="mailError"><?php check_msg('email'); ?></label>
+                <label id="mailError" class="h4 text-danger"><?php check_msg('email'); ?></label>
             </div>
 
 
@@ -95,7 +95,7 @@ include '../php/form_view.php';
                     
                 
             <div >
-                <label id="passwordError"><?php check_msg('password'); ?></label>
+                <label id="passwordError" class="h4 text-danger"><?php check_msg('password'); ?></label>
             </div>
 
 
@@ -110,7 +110,7 @@ include '../php/form_view.php';
                     
                 
             <div>
-                <label><?php check_msg('phoneNumber'); ?></label>
+                <label class="h4 text-danger"><?php check_msg('phoneNumber'); ?></label>
             </div>
                     
             <div class="mt-5 mb-3">
