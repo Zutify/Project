@@ -1,30 +1,20 @@
 <!-- formularz logowania-->
 <?php
-session_start();
-include '../php/form_view.php';
-include '../php/detectmobilebrowser.php';
-include '../php/db_connection.php';
-include '../php/check_user_logged.php';
+include 'php/check_user_logged.php';
 //include '../php/ride_details.php'; - w trakcie robienia, nie zmieniać
 ?>
-<!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- ikonek można szukać na stronie : 
-https://fontawesome.com/v4.7.0/icon/
--->
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-between">
         <div class="d-inline-block mt-5 mb-5 ml-5">
-            <a href="../page/rideMenu.php" class="h4 text-dark">
+            <a href="?page=rideMenu" class="h4 text-dark">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 Wstecz
             </a>
         </div>
         <div class="d-inline-block mr-5 mt-5">
             <button type="button" class="btn">
-                <a href="../page/sideMenu.php" class="text-body">
+                <a href="?page=sideMenu" class="text-body">
                     <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
                 </a>
             </button>
@@ -72,7 +62,7 @@ https://fontawesome.com/v4.7.0/icon/
         <div class="mt-5 mx-5">
             <ul class="list-group w-100">
                 <li class="my-4 list-group-item shadow">
-                    <a href="../page/rideDetails.php" class="text-body">
+                    <a href="?page=rideDetails" class="text-body">
                         <div class="h3 p-4">
                             <div id="" class="d-inline-block">
                                 Wydział Informatyki
@@ -98,7 +88,7 @@ https://fontawesome.com/v4.7.0/icon/
                     </a>
                 </li>
                 <li class="my-4 list-group-item shadow">
-                    <a href="../page/rideDetails.php" class="text-body">
+                    <a href="?page=rideDetails" class="text-body">
                         <div class="h3 p-4">
                             <div id="" class="d-inline-block">
                                 Wydział Informatyki
@@ -124,7 +114,7 @@ https://fontawesome.com/v4.7.0/icon/
                     </a>
                 </li>
                 <li class="my-4 list-group-item shadow">
-                    <a href="../page/rideDetails.php" class="text-body">
+                    <a href="?page=rideDetails" class="text-body">
                         <div class="h3 p-4">
                             <div id="" class="d-inline-block">
                                 Wydział Informatyki

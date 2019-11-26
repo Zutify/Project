@@ -1,37 +1,27 @@
 <!-- formularz logowania-->
 <?php
-session_start();
-include '../php/form_view.php';
-include '../php/detectmobilebrowser.php';
-include '../php/db_connection.php';
-include '../php/check_user_logged.php';
+include 'php/check_user_logged.php';
 ?>
-<!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- ikonek można szukać na stronie : 
-https://fontawesome.com/v4.7.0/icon/
--->
-<script src="../js/changeInputsValue.js"></script>
+<script src="js/changeInputsValue.js"></script>
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-between">
         <div class="d-inline-block mt-5 mb-5 ml-5">
-            <a href="../page/menu.php" class="h4 text-dark">
+            <a href="?page=menu" class="h4 text-dark">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 Wstecz
             </a>
         </div>
         <div class="d-inline-block mr-5 mt-5">
             <button type="button" class="btn">
-                <a href="../page/sideMenu.php" class="text-body">
+                <a href="?page=sideMenu" class="text-body">
                     <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
                 </a>
             </button>
         </div>
     </div>
     
-    <div class="w-100 h-50">
+    <div class="w-100 h-50" style="min-height: 50vh">
         
         <div class="ml-5 mt-5">
             <div class="display-2" ><strong>Dokąd jedziemy?</strong></div>
@@ -39,7 +29,7 @@ https://fontawesome.com/v4.7.0/icon/
         
         <!-- kontener zawierający opcje do wyboru pod mapą -->
         <div class="w-75 mx-auto">
-            <form action="../php/ride_info_handle.php" method="POST">
+            <form action="php/ride_info_handle.php" method="POST">
                 <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
@@ -62,7 +52,7 @@ https://fontawesome.com/v4.7.0/icon/
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-                <div class="position-fixed" style="top: 405; right: 260;">
+                <div class="position-fixed" style="top: 405px; right: 260px;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
                         <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
                             <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>

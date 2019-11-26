@@ -1,17 +1,10 @@
 <!-- formularz logowania-->
 <?php
-session_start();
-include '../php/form_view.php';
-include '../php/detectmobilebrowser.php';
-include '../php/db_connection.php';
 ?>
-<!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="mt-5 mb-5 ml-5">
-        <a href="../../index.php" class="h4 text-dark">
+        <a href="index.php" class="h4 text-dark">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
             Wstecz
         </a>
@@ -25,7 +18,7 @@ include '../php/db_connection.php';
             
     <div class="w-75 mx-auto ">
         
-        <form action="../php/login.php" method="post" id="form">
+        <form action="php/login.php" method="post" id="form">
             
             <div class="mt-5 mb-3">
                 <label for="email" class="h3">Login</label>

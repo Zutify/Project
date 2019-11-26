@@ -1,19 +1,8 @@
 <!-- formularz logowania-->
 <?php
-session_start();
-include '../php/form_view.php';
-include '../php/detectmobilebrowser.php';
-include '../php/db_connection.php';
-include '../php/check_user_logged.php';
+include 'php/check_user_logged.php';
 ?>
 
-
-<!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- ikonek można szukać na stronie : 
-https://fontawesome.com/v4.7.0/icon/
--->
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="h-25 bg-light" style="padding-top: 175px;">
@@ -34,12 +23,12 @@ https://fontawesome.com/v4.7.0/icon/
                     ?>
                 </div>
                 <div class="py-2">
-                    <a href="../page/editProfile.php" class="h3 text-body">
+                    <a href="?page=editProfile" class="h3 text-body">
                         Edytuj profil
                     </a>
                 </div>
                 <div class="py-2">
-                    <a href="../php/logout.php" class="h3 text-body">
+                    <a href="php/logout.php" class="h3 text-body">
                         Wyloguj
                     </a>
                 </div>
@@ -53,21 +42,21 @@ https://fontawesome.com/v4.7.0/icon/
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="../page/menu.php" class="text-body">Menu główne</a>
+                        <a href="?page=menu" class="text-body">Menu główne</a>
                     </strong>
                 </div>
             </div>
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="../page/rideAdd.php" class="text-body">Dodaj przejazd</a>
+                        <a href="?page=rideAdd" class="text-body">Dodaj przejazd</a>
                     </strong>
                 </div>
             </div>
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="../page/rideMenu.php" class="text-body">Szukaj przejazdu</a>
+                        <a href="?page=rideMenu" class="text-body">Szukaj przejazdu</a>
                     </strong>
                 </div>
             </div>

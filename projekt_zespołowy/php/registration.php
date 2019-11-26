@@ -138,10 +138,10 @@ if (isset($_POST["submit"])) {
         
         #CloseCon($conn);
         #echo 'poprawne dane';
-        header('Location: ../page/login.php');
+        header('Location: ../index.php?page=login');
     }else {
         $_SESSION['register_response'] = $r;
-        header('Location: ../page/rejestracja.php');
+        header('Location: ../index.php?page=rejestracja');
     }  
 }else{
     header('Location: /');

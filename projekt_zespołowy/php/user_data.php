@@ -1,6 +1,6 @@
 <?php
 include 'db_connection.php';
-session_start();
+
 
 // pobiera dane o zalogowanym uzytkowniku
 

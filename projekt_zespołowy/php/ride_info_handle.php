@@ -15,13 +15,13 @@ if (isset($_POST["submit"])) {
     
     // jeśli błąd to przenosi znowu na stronę z formularzem
     if(isset($msgStart) || isset($msgDest))
-        header('Location: ../page/rideMenu.php');
+        header('Location: ../index.php?page=rideMenu');
     else
     {
         // jeśli poprawnie wypełnione to ustawia zmienne sesyjne
         $_SESSION['start'] = $start;
         $_SESSION['dest'] = $dest;
-        header('Location: ../page/rideInfo.php');
+        header('Location: ../index.php?page=rideInfo');
     }
 }
 ?>

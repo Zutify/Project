@@ -67,10 +67,10 @@ if (isset($_POST["submit"])) {
             $_SESSION['userID']=$user2['ID'];
             $_SESSION['username']=$user2['Name'];
             
-        header('Location: ../page/menu.php');
+        header('Location: ../index.php?page=menu');
     }else {
         $_SESSION['login_response'] = $r;
-        header('Location: ../page/login.php');
+        header('Location: ../index.php?page=login');
     }  
 }else{
     header('Location: /');

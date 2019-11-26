@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['page']) && !empty($_GET['page'])) {
-    if ($_GET['page'] !== 'register') {
+    if ($_GET['page'] !== 'rejestracja') {
         unset($_SESSION['register_response']);
     }
     if($_GET['page'] !== 'login'){
