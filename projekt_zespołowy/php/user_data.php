@@ -8,6 +8,7 @@ if(isset($_SESSION['isLogged']))
 {
     if(isset($_SESSION['userID']))
     {
+        // pobieranie zmiennych z tabeli User
         $id = $_SESSION['userID'];
         $sql = "SELECT * FROM User WHERE `ID`='$id'";
         $result = $conn->query($sql);
@@ -21,6 +22,19 @@ if(isset($_SESSION['isLogged']))
         //$Password = $user['Password'];
         $Email = $user['Email'];
         $PhoneNumber = $user['PhoneNumber'];
+        
+        // pobieranie zmiennych o samochodzie Uzytkownika o ile posiada
+        $sql = "SELECT * FROM UserCar WHERE `UserID`='$id'";
+        $result = $conn->query($sql);
+        $user = $result->fetch_assoc();
+        // jeśli istnieje jakiś rekord
+        if($user)
+        {
+            $carBrand = $user['Brand'];
+            $carModel = $user['Model'];
+            $description = $user['Description'];
+        }
+            
     }      
     else
         echo "BŁĄD 1";

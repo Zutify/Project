@@ -13,6 +13,7 @@ include '../php/check_user_logged.php';
 https://fontawesome.com/v4.7.0/icon/
 -->
 <script src="../js/addRide.js"></script>
+
 <div class="container-fluid h-100" style="min-width: 250px;">
     <div class="w-100" style="height: 40%; max-height: 40%;">
         <div class="w-100 d-flex justify-content-between">

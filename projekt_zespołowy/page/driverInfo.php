@@ -4,6 +4,8 @@ session_start();
 include '../php/form_view.php';
 include '../php/detectmobilebrowser.php';
 include '../php/db_connection.php';
+include '../php/check_user_logged.php';
+include '../php/user_data.php';
 ?>
 <!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
@@ -26,7 +28,12 @@ https://fontawesome.com/v4.7.0/icon/
                              Marka auta
                          </div>
                          <div class="col-8">
-                            <input id="carBrand" placeholder="Volvo" class="display-inline-block" style="background: transparent; border:none; font-color: black;">
+                            <?php
+                            echo '<input id="carBrand" ';
+                            if(isset($carBrand))
+                                echo 'placeholder="'.$carBrand.'"';
+                            echo ' class="display-inline-block" style="background: transparent; border:none; font-color: black;">'
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -38,7 +45,12 @@ https://fontawesome.com/v4.7.0/icon/
                              Model
                          </div>
                          <div class="col-8">
-                            <input id="carModel" placeholder="V40" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">
+                            <?php
+                            echo '<input id="carModel"';
+                            if(isset($carModel))
+                                echo 'placeholder="'.$carModel.'"';
+                            echo 'class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
+                            ?>
                         </div>    
                     </div>
                 </div>
@@ -51,10 +63,15 @@ https://fontawesome.com/v4.7.0/icon/
                          <div class="col-12">
                              <div class="row">
                                  <div class="col-6">
-                                     Nuer kontaktowy
+                                     Numer kontaktowy
                                  </div>
                                  <div class="col-6">
-                                    <input id="phoneNumber" placeholder="500 600 700" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">
+                                    <?php
+                                    echo '<input id="phoneNumber"';
+                                    if(isset($PhoneNumber))
+                                        echo ' placeholder="'.$PhoneNumber.'"';
+                                    echo 'class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
+                                    ?>
                                 </div>    
                             </div>
                          </div>
@@ -65,8 +82,18 @@ https://fontawesome.com/v4.7.0/icon/
         <div class="row">
             <div class="col py-5 pl-5">
                 <div class="pl-3">
-                    <div>
-                        Opis
+                    <div class="row">
+                        <div class="col-4">
+                            Opis
+                        </div>
+                        <div class="col-6">
+                            <?php
+                            echo '<textarea id="driverDescription" rows="8" cols="35" style="border: none;">';
+                            if(isset($description))
+                                echo $description;
+                            echo '</textarea>';
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

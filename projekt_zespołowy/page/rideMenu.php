@@ -4,6 +4,7 @@ session_start();
 include '../php/form_view.php';
 include '../php/detectmobilebrowser.php';
 include '../php/db_connection.php';
+include '../php/check_user_logged.php';
 ?>
 <!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
@@ -11,6 +12,7 @@ include '../php/db_connection.php';
 <!-- ikonek można szukać na stronie : 
 https://fontawesome.com/v4.7.0/icon/
 -->
+<script src="../js/changeInputsValue.js"></script>
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-between">
@@ -37,55 +39,55 @@ https://fontawesome.com/v4.7.0/icon/
         
         <!-- kontener zawierający opcje do wyboru pod mapą -->
         <div class="w-75 mx-auto">
-            <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
-                <button type="button" class="btn btn-lg btn-block">
-                    <div class="h3 text-left">
-                        <div class="col-10">
-                            <i class="fa fa-search" style="font-size: 36px;"></i>
-                            <input id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+            <form action="../php/ride_info_handle.php" method="POST">
+                <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
+                    <button type="button" class="btn btn-lg btn-block">
+                        <div class="h3 text-left">
+                            <div class="col-10">
+                                <i class="fa fa-search" style="font-size: 36px;"></i>
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                            </div>
                         </div>
-                    </div>
-                </button>
-            </div>
-            <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
-                <button type="button" class="btn btn-lg btn-block">
-                    <div class="h3 text-left">
-                        <div class="col-10">
-                            <i class="fa fa-compass" style="font-size: 36px;"></i>
-                            <input id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                    </button>
+                </div>
+                <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
+                    <button type="button" class="btn btn-lg btn-block">
+                        <div class="h3 text-left">
+                            <div class="col-10">
+                                <i class="fa fa-compass" style="font-size: 36px;"></i>
+                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                            </div>
                         </div>
-                    </div>
-                </button>
-            </div>
-            
-            <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-            <div class="position-fixed" style="top: 405; right: 260;">
-                <button type="button" class="btn btn-lg btn-block">
-                    <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
-                        <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>
-                        <a href="">
-                        </a>
-                    </div>
-                </button>
-            </div>
-            
-            <div class="my-5">
-                <div class="h4">
-                    <a href=""class="text-dark">
-                        Pokaż kierowców w pobliżu
-                    </a>
-                </div>
-            </div>
-            
-            <div class="my-5 d-flex justify-content-between">
-                <div>
-                    <div class="h2">Data i godzina</div>
-                </div>
-                <div class="">
-                    <a href="../page/rideInfo.php" type="button" class="btn text-white btn-lg bg-primary rounded">SZUKAJ</a>
+                    </button>
                 </div>
                 
-            </div>
+                <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
+                <div class="position-fixed" style="top: 405; right: 260;">
+                    <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
+                        <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
+                            <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="my-5">
+                    <div class="h4">
+                        <a href=""class="text-dark">
+                            Pokaż kierowców w pobliżu
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="my-5 d-flex justify-content-between">
+                    <div>
+                        <div class="h2">Data i godzina</div>
+                    </div>
+                    <div>
+                        <input type="submit" value="SZUKAJ" name="submit" class="btn text-white btn-lg bg-primary rounded">
+                    </div>
+                </div>
+            </form>
+            
             <div class="border-bottom border-dark"></div>
             
             <table class="table-borderless w-100">

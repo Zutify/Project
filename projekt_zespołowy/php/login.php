@@ -1,6 +1,7 @@
 <?php
 include 'db_connection.php';
 
+echo "SIEMA";
 if (isset($_POST["submit"])) {
     session_start();
 

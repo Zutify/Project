@@ -25,14 +25,14 @@ include '../php/db_connection.php';
             
     <div class="w-75 mx-auto ">
         
-        <form action="../php/login.php" method="post">
+        <form action="../php/login.php" method="post" id="form">
             
             <div class="mt-5 mb-3">
-                <label for="email" class="h3">E-mail</label>
+                <label for="email" class="h3">Login</label>
             </div>
                     
             <div >
-                <input type="text" name="email" id="email" class="form-control form-control-lg" style="height: 80px;"<?php check_input('email'); ?>>
+                <input type="text" name="email" id="email" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;"<?php check_input('email'); ?>>
             </div>
                    
             <div>
@@ -46,7 +46,7 @@ include '../php/db_connection.php';
                 
                     
             <div >
-                <input type="password" name="password" id="password" class="form-control form-control-lg" style="height: 80px;"<?php check_input('password'); ?>>
+                <input type="password" name="password" id="password" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;"<?php check_input('password'); ?>>
             </div>
                     
                 
@@ -62,11 +62,9 @@ include '../php/db_connection.php';
                 </div>
             </div>
                 
-                    
-            <div>
-                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 52px;">
+            <div >
+                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 50px;">
             </div>
-                    
                 
         </form>
     </div>

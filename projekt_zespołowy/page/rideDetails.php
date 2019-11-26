@@ -4,6 +4,7 @@ session_start();
 include '../php/form_view.php';
 include '../php/detectmobilebrowser.php';
 include '../php/db_connection.php';
+include '../php/check_user_logged.php';
 ?>
 <!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">

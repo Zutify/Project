@@ -130,7 +130,7 @@ if (isset($_POST["submit"])) {
         $conn->query($sql);
         
         #https://www.tempmailaddress.com/ tutaj tworzy sie 5min miala 
-        if(mail("nivin.elwyn@iiron.us", "subject", "$link", "nivin.elwyn@iiron.us")){
+        if(mail("delano.xylan@iiron.us", "subject", "$link", "delano.xylan@iiron.us")){
 
         }
 

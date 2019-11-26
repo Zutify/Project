@@ -17,7 +17,7 @@ include '../php/form_view.php';
         </a>
     </div>
     
-    <div class="mt-5 mb-5 ml-5">
+    <div class="mt-3 mb-3 ml-5">
         <div class="display-1 text-black">
             <strong>Rejestracja</strong> 
         </div>

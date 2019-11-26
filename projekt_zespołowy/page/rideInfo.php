@@ -4,6 +4,8 @@ session_start();
 include '../php/form_view.php';
 include '../php/detectmobilebrowser.php';
 include '../php/db_connection.php';
+include '../php/check_user_logged.php';
+//include '../php/ride_details.php'; - w trakcie robienia, nie zmieniać
 ?>
 <!-- dodane pliki do stylizowania i możliwości używania ikonek  -->
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
@@ -33,11 +35,33 @@ https://fontawesome.com/v4.7.0/icon/
         <div class="ml-5">
             <div class="my-3">
                 <i class="fa fa-circle-o d-inline-block" style="font-size: 48px; color: green;" aria-hidden="true"></i>
-                <div class="h3 ml-3 d-inline-block"  id="start">Wydział Informatyki</div>
+                <div class="h3 ml-3 d-inline-block"  id="start">
+                    <?php
+                        if(isset($_SESSION['start']))
+                        {
+                            echo $_SESSION['start'];
+                        }
+                        else
+                        {
+                            echo 'błąd';
+                        }
+                    ?>
+                </div>
             </div>
             <div class="my-3">
                 <i class="fa fa-circle-o d-inline-block" style="font-size: 48px; color: blue;" aria-hidden="true"></i>
-                <div class="h3 ml-3 d-inline-block" id="destination">Podjuchy</div>
+                <div class="h3 ml-3 d-inline-block" id="destination">
+                    <?php
+                        if(isset($_SESSION['dest']))
+                        {
+                            echo $_SESSION['dest'];
+                        }
+                        else
+                        {
+                            echo 'błąd';
+                        }
+                    ?>
+                </div>
             </div>
             <div id="" class="h3 text-primary ">
                 Dzisiaj : 9:45
