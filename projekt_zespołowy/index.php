@@ -40,32 +40,36 @@ include 'php/form_view.php';
 
 </head>
 
-<body>
-    <div class="container-fluid" style="min-width: 250px;">
-        <div class="img-fluid">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Phoenicopterus_ruber_in_S%C3%A3o_Paulo_Zoo.jpg" style="max-width: 100%; height: auto;"> 
-        </div>
-        <div class="h-50 w-100 bg-primary text-white ">
-            <div class="display-2 text-center">ZUTify</div>
+<body style="height: 100vh">
+    <div class="h-100 container-fluid" style="min-width: 250px;">
+        <div class="w-100 h-50 ">
+            <div class="pt-5 mt-5">
+                <div class="display-2 text-center text-white">ZUTify</div>
+            </div>
         </div>
         
-        <!--Na razie na tej stronie startowej są same buttony, pozniej zrobimy zeby bylo ladniej :)-->
-        <div class="container-fluid text-center mt-5">
-            <div >
-                <div class="mb-3">
-                    <button type="button" class="btn btn-success w-50">
-                        <a href="page/login.php" class="text-white">Zaloguj</a>
-                    </button>
-                </div>
-            </div>
-            <div>
+        <div class="h-50 w-100">
+            <div class="container-fluid text-center mt-5">
                 <div>
-                    <button type="button" class="btn btn-success w-50">
-                        <a href="page/rejestracja.php" class="text-white">Zarejestruj</a>
-                    </button>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-success w-50">
+                            <a href="page/login.php" class="text-white">Zaloguj</a>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <button type="button" class="btn btn-success w-50">
+                            <a href="page/rejestracja.php" class="text-white">Zarejestruj</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <div style="background-image:url('../style/img/rysunek.svg');width: 100%; height: 100%; background-size: cover; position: absolute;top:0; left:0; z-index:-1;background-color:#fff;">
+        </div>
+        
     </div>
 </body>
 
