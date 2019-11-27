@@ -1,11 +1,12 @@
 <!-- formularz logowania-->
 <?php
 include 'php/check_user_logged.php';
+include 'php/reset_ride_search.php';
 ?>
 
 
 <div class="container-fluid" style="min-width: 250px;">
-    <div class="h-25 bg-light" style="padding-top: 175px;">
+    <div class="h-25 bg-light pb-5" style="padding-top: 175px;">
         <div class="w-75 mx-auto">
             <i class="fa fa-user-circle-o" class="d-inline-block" style="color:green; font-size: 150px; " aria-hidden="true"></i>
             <div class="d-inline-block ml-5">

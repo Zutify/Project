@@ -1,6 +1,7 @@
 <!-- formularz logowania-->
 <?php
 include 'php/check_user_logged.php';
+include 'php/reset_ride_search.php';
 ?>
 <script src="js/changeInputsValue.js"></script>
 

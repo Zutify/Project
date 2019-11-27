@@ -1,7 +1,7 @@
 <!-- formularz logowania-->
 <?php
 include 'php/check_user_logged.php';
-//include '../php/ride_details.php'; - w trakcie robienia, nie zmieniać
+include 'php/ride_details.php';
 ?>
 
 <div class="container-fluid" style="min-width: 250px;">
@@ -61,84 +61,8 @@ include 'php/check_user_logged.php';
         
         <div class="mt-5 mx-5">
             <ul class="list-group w-100">
-                <li class="my-4 list-group-item shadow">
-                    <a href="?page=rideDetails" class="text-body">
-                        <div class="h3 p-4">
-                            <div id="" class="d-inline-block">
-                                Wydział Informatyki
-                            </div>
-                            <i class="fa fa-long-arrow-right d-inline-block" aria-hidden="true"></i>
-                            <div id="" class="d-inline-block">
-                                Rondo Zdroje
-                            </div>
-                            <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
-                            <div class="d-flex justify-content-between mt-3">
-                                <div id="" class="text-primary d-inline-block">
-                                    Dzisiaj : 9:45
-                                </div>
-                                <!-- ilość ikonek w zależności od ilości miejsc -->
-                                <div>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="my-4 list-group-item shadow">
-                    <a href="?page=rideDetails" class="text-body">
-                        <div class="h3 p-4">
-                            <div id="" class="d-inline-block">
-                                Wydział Informatyki
-                            </div>
-                            <i class="fa fa-long-arrow-right d-inline-block" aria-hidden="true"></i>
-                            <div id="" class="d-inline-block">
-                                Rondo Zdroje
-                            </div>
-                            <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
-                            <div class="d-flex justify-content-between mt-3">
-                                <div id="" class="text-primary d-inline-block">
-                                    Dzisiaj : 9:45
-                                </div>
-                                <!-- ilość ikonek w zależności od ilości miejsc -->
-                                <div>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="my-4 list-group-item shadow">
-                    <a href="?page=rideDetails" class="text-body">
-                        <div class="h3 p-4">
-                            <div id="" class="d-inline-block">
-                                Wydział Informatyki
-                            </div>
-                            <i class="fa fa-long-arrow-right d-inline-block" aria-hidden="true"></i>
-                            <div id="" class="d-inline-block">
-                                Rondo Zdroje
-                            </div>
-                            <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
-                            <div class="d-flex justify-content-between mt-3">
-                                <div id="" class="text-primary d-inline-block">
-                                    Dzisiaj : 9:45
-                                </div>
-                                <!-- ilość ikonek w zależności od ilości miejsc -->
-                                <div>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>
-                                    <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                <!-- każdy item ma link to informacji o przejeździe rideDetails.php-->
+                <?php showRides(); ?>
             </ul>
         </div>
     </div>
