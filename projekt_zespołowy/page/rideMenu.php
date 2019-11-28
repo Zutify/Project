@@ -31,29 +31,29 @@ include 'php/reset_ride_search.php';
         <!-- kontener zawierający opcje do wyboru pod mapą -->
         <div class="w-75 mx-auto">
             <form action="php/ride_info_handle.php" method="POST">
-                <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
+                <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
                             <div class="col-10">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
                         </div>
                     </button>
                 </div>
-                <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
+                <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
                             <div class="col-10">
                                 <i class="fa fa-compass" style="font-size: 36px;"></i>
-                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
                         </div>
                     </button>
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-                <div class="position-fixed" style="top: 405px; right: 260px;">
+                <div class="position-fixed" style="top: 415px; right: 250px;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
                         <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
                             <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>

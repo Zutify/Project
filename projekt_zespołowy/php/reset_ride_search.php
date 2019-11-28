@@ -6,4 +6,5 @@ unset($_SESSION['startAddess']);
 unset($_SESSION['destAddress']);
 unset($_SESSION['trip']);
 unset($_SESSION['addressError']);
+unset($_SESSION['rideInfo']);
 ?>

@@ -5,6 +5,7 @@
 function driverInfo($driverID)
 {
     include 'db_connection.php';
+    session_start();
     
     $sql = "SELECT * FROM User WHERE `ID`='$driverID'";
     $result = $conn->query($sql);
@@ -54,8 +55,39 @@ function driverInfo($driverID)
                 Opis: <div class="d-inline-block mt-3" id="description">';
                 echo $description;
                 echo '</div>
-            </div>
-        </div>';        
+            </div>';
+            
+            if(isset($_SESSION['rideJoinMessage']))
+            {
+                echo'
+                <div class="text-center" style="margin-top: 80px;">
+                    <div class="text-danger h1">';
+                        echo $_SESSION['rideJoinMessage'];
+                        unset($_SESSION['rideJoinMessage']);
+                    echo '</div>
+                </div>';
+            }
+            else if(isset($_SESSION['rideJoinSuccess']))
+            {
+                echo'
+                <div class="text-center" style="margin-top: 80px;">
+                    <div class="text-success h1">';
+                        echo $_SESSION['rideJoinSuccess'];
+                        unset($_SESSION['rideJoinSuccess']);
+                    echo '</div>
+                </div>';
+            }
+            else
+            {
+                echo'
+                <!-- przycisk dołączania do przejazdu -->
+                <a href="../php/ride_join.php" class="text-white" >
+                    <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                        <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
+                    </button>
+                </a>';
+            }
+        echo '</div>';        
     }
     else
     {
@@ -78,8 +110,39 @@ function driverInfo($driverID)
                 Opis: 
                 <div class="d-inline-block ml-2" id="description">
                 </div>
-            </div>
-        </div>';
+            </div>';
+            
+            if(isset($_SESSION['rideJoinMessage']))
+            {
+                echo'
+                <div class="text-center" style="margin-top: 80px;">
+                    <div class="text-danger h1">';
+                        echo $_SESSION['rideJoinMessage'];
+                        unset($_SESSION['rideJoinMessage']);
+                    echo '</div>
+                </div>';
+            }
+            else if(isset($_SESSION['rideJoinSuccess']))
+            {
+                echo'
+                <div class="text-center" style="margin-top: 80px;">
+                    <div class="text-success h1">';
+                        echo $_SESSION['rideJoinSuccess'];
+                        unset($_SESSION['rideJoinSuccess']);
+                    echo '</div>
+                </div>';
+            }
+            else
+            {
+                echo'
+                <!-- przycisk dołączania do przejazdu -->
+                <a href="../php/ride_join.php" class="text-white" >
+                    <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                        <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
+                    </button>
+                </a>';
+            }
+        echo '</div>'; 
     }
 
 }

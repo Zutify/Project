@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-
 // pobiera dane o zalogowanym uzytkowniku
 
 if(isset($_SESSION['isLogged']))
@@ -37,7 +36,7 @@ if(isset($_SESSION['isLogged']))
             
     }      
     else
-        echo "BŁĄD 1";
+        echo "Nie ustawione ID";
 }
 else
-    echo "BŁĄD 2";
+    echo "Nie zalogowany";

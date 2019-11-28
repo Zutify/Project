@@ -35,7 +35,7 @@ include 'php/check_user_logged.php';
                         <div class="h3 text-left">
                             <div class="col-10">
                                 <i class="fa fa-compass" style="font-size: 36px;"></i>
-                                <input id="start" class="ml-3" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                                <input id="start" class="ml-3" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div> 
                         </div>
                     </button>
@@ -45,7 +45,7 @@ include 'php/check_user_logged.php';
                         <div class="h3 text-left">
                             <div class="col-10">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 24pt; border:none; font-color: black;">
+                                <input id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
                         </div>
                     </button>

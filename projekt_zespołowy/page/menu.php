@@ -19,11 +19,11 @@ include 'php/check_user_logged.php';
                         echo "BŁĄD";
                 ?>
                 <div class="float-right mr-5">
-                    <button type="button" class="btn">
-                        <a href="?page=sideMenu" class="text-body">
+                    <a href="?page=sideMenu" class="text-body">
+                        <button type="button" class="btn">
                             <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
-                        </a>
-                    </button>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -34,16 +34,16 @@ include 'php/check_user_logged.php';
         </div>
         
         <div class="w-75 mx-auto mt-5">
-            <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-                <a href="?page=rideAdd" class="text-white h3">
-                    DODAJ PRZEJAZD
-                </a>
-            </button>
-            <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-                <a href="?page=rideMenu" class="text-white h3" >
-                    SZUKAJ PRZEJAZDU
-                </a>
-            </button>
+            <a href="?page=rideAdd" class="text-white">
+                <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
+                    <div class="h3">DODAJ PRZEJAZD</div>
+                </button>
+            </a>
+            <a href="?page=rideMenu" class="text-white" >
+                <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
+                    <div class="h3">SZUKAJ PRZEJAZDU</div>
+                </button>
+            </a>
         </div>
         
         <div style="background-image:url('../style/img/rysunek.svg');width: 100%; height: 100%; background-size: cover; position: absolute;top:0; left:0; z-index:-1;background-color:#fff;">
