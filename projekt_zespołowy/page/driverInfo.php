@@ -5,7 +5,12 @@ include 'php/user_data.php';
 ?>
 
 
-<div class="container-fluid" style="min-width: 250px; height: 1000px; max-height: 1000px;">
+<div class="container-fluid" style="min-width: 250px;">
+    <div class="text-center" style="margin-top: 80px;" id="btn-close">
+        <!--<a href="?page=editProfile">--><i class="fa fa-times-circle" style="font-size: 80px; color: grey; opacity: 0.5;" aria-hidden="true"></i>
+        <!--</a>-->
+    </div>
+    
     <div class="h2 ml-5 my-5">
         Opis kierowcy
     </div>
@@ -77,9 +82,9 @@ include 'php/user_data.php';
                         <div class="col-4">
                             Opis
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <?php
-                            echo '<textarea id="driverDescription" rows="8" cols="35" style="border: none;">';
+                            echo '<textarea id="driverDescription" rows="6" cols="38" style="border: none;">';
                             if(isset($description))
                                 echo $description;
                             echo '</textarea>';
@@ -91,7 +96,7 @@ include 'php/user_data.php';
         </div>
     </div><!-- end container fluid - table -->
     
-    <div class="w-75 mx-auto" style="margin-top: 200px;">
+    <div class="w-50 mx-auto" style="margin-top: 0px;">
         <button type="button" class="btn btn-success btn-block mb-5" style="height: 80px; border-radius: 40px;">
             <a href="?page=driverInfo" class="text-white h3" >
                 POTWIERDŹ
@@ -99,9 +104,17 @@ include 'php/user_data.php';
         </button>
     </div>
     
-    <div class="text-center" style="margin-top: 100px;">
-        <a href="?page=editProfile"><i class="fa fa-times-circle" style="font-size: 80px; color: grey; opacity: 0.5;" aria-hidden="true"></i>
-        </a>
-    </div>
+    
     
 </div>
+<script>
+    $(document).ready(function () {
+        $('#btn-close').click(function(){
+            document.getElementById('btn-action').style.display = "block";
+            $('#btn-close').hide();
+            $.when($('#driverInfo').fadeOut("slow")).done(function() {
+                 $('#driverInfo *').detach();
+                 });
+        });
+    });
+</script>

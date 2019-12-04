@@ -3,21 +3,30 @@
 include 'php/check_user_logged.php';
 include 'php/reset_ride_search.php';
 ?>
+<script src="js/addRide.js"></script>
 <script src="js/changeInputsValue.js"></script>
+<style>
+.pac-item{
+    height: 40px;
+    font-size: 26px;
+    padding-top: 7px;
+}
+.pac-item-query{
+    font-size: 26px;
+}
+.pac-icon{
 
+}
+</style>
+<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000;">
+    </div>
 <div class="container-fluid" style="min-width: 250px;">
-    <div class="w-100 d-flex justify-content-between">
-        <div class="d-inline-block mt-5 mb-5 ml-5">
-            <a href="?page=menu" class="h4 text-dark">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                Wstecz
-            </a>
-        </div>
-        <div class="d-inline-block mr-5 mt-5">
+    <div class="w-100 d-flex justify-content-end">
+        <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
             <button type="button" class="btn">
-                <a href="?page=sideMenu" class="text-body">
+                <!--<a href="?page=sideMenu" class="text-body">-->
                     <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
-                </a>
+                <!--</a>-->
             </button>
         </div>
     </div>
@@ -53,10 +62,10 @@ include 'php/reset_ride_search.php';
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-                <div class="position-fixed" style="top: 415px; right: 250px;">
+                <div class="position-fixed" style="top: 425px; right: 250px;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
-                        <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
-                            <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>
+                        <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 60px; height: 60px;">
+                            <i class="fa fa-exchange text-primary" style="font-size: 44px; transform: rotate(90deg);"></i>
                         </div>
                     </button>
                 </div>
@@ -70,11 +79,14 @@ include 'php/reset_ride_search.php';
                 </div>
                 
                 <div class="my-5 d-flex justify-content-between">
-                    <div>
-                        <div class="h2">Data i godzina</div>
+                    <div class="row">
+                        <div class="col-8 h2">Data i godzina</div>
+                        <div class="col-8 h3 text-primary">
+                            Dzisiaj : 9:27
+                        </div>
                     </div>
                     <div>
-                        <input type="submit" value="SZUKAJ" name="submit" class="btn text-white btn-lg bg-primary rounded">
+                        <input type="submit" value="SZUKAJ" name="submit" class="btn text-white btn-lg bg-primary" style="width: 200px; font-size: 28px; border-radius: 30px;">
                     </div>
                 </div>
             </form>
@@ -115,9 +127,14 @@ include 'php/reset_ride_search.php';
                     </td>
                 </tr>
             </table>
-            
         </div>
-        
+        <div id="map"></div>
         
     </div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
+        async defer></script>
+        
+<script src="js/jquery.js"></script>
+<script src="js/openSideMenu.js"></script>

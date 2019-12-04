@@ -107,19 +107,31 @@ function showRides()
 // pokazuje miejsca na zielono i czerwono w zależności od ich ilości
 function showCarPlaces($trip)
 {
-    for($i = 1; $i <= $trip['Places']; $i++)
+    if(is_array($trip))
     {
-        // jeśli wolne to na zielono
-        if($i <= $trip['PlacesLeft'])
+        for($i = 1; $i <= $trip['Places']; $i++)
+        {
+            // jeśli wolne to na zielono
+            if($i <= $trip['PlacesLeft'])
+            {
+                echo'
+                <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>';
+            }
+            // jeśli zajęte to na czerwono
+            else
+            {
+                echo'
+                <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>';
+            }
+        }
+    }
+    else if(is_int($trip))
+    {
+        for($i = 1; $i <= $trip; $i++)
         {
             echo'
             <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:green;"></i>';
-        }
-        // jeśli zajęte to na czerwono
-        else
-        {
-            echo'
-            <i class="fa fa-male d-inline-block mx-1" aria-hidden="true" style="font-size: 52px; color:red;"></i>';
+           
         }
     }
 }

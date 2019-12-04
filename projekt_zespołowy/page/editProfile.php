@@ -4,13 +4,17 @@ include 'php/check_user_logged.php';
 include 'php/user_data.php';
 ?>
 
+<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000">
+    </div>
+    
 <div class="container-fluid" style="min-width: 250px;">
-    <div class="w-100 d-flex justify-content-between">
-        <div class="d-inline-block mt-5 mb-5 ml-5">
-            <a href="?page=sideMenu" class="h4 text-dark">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                Wstecz
-            </a>
+    <div class="w-100 d-flex justify-content-end">
+        <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
+            <button type="button" class="btn">
+                <!--<a href="?page=sideMenu" class="text-body">-->
+                    <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
+                <!--</a>-->
+            </button>
         </div>
     </div>
     
@@ -99,11 +103,27 @@ include 'php/user_data.php';
     </div>
     
     <div class="w-75 mx-auto mt-5">
-        <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-            <a href="?page=driverInfo" class="text-white h3" >
-                JESTEM KIEROWCĄ
-            </a>
+        <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;" id="btn-action">
+            <!--<a href="?page=driverInfo" class="text-white h3" >-->
+                <span class="text-white h3">JESTEM KIEROWCĄ</span>
+            <!--</a>-->
         </button>
     </div>
-    </div><!-- end container fluid - table -->
+    
+    <div id="driverInfo">
+    </div>
 </div>
+<script src="js/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btn-action').click(function(){
+            document.getElementById('btn-action').style.display = "none";
+            $('#driverInfo').hide().load( 'https://zutify.000webhostapp.com/index.php?page=driverInfo' ).fadeIn("slow");
+            $('body').bind('touchmove', function(e){e.preventDefault()})
+            document.getElementById('sideMenu').style.height = "130%";
+        });
+    });
+</script>
+        
+<script src="js/jquery.js"></script>
+<script src="js/openSideMenu.js"></script>

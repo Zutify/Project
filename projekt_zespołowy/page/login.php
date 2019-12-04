@@ -18,7 +18,7 @@
             
     <div class="w-75 mx-auto ">
         
-        <form action="php/login.php" method="post" id="form">
+        <form action="php/login.php" method="post" >
             
             <div class="mt-5 mb-3">
                 <label for="email" class="h3">Login</label>
@@ -48,11 +48,22 @@
             </div>
                 
             <div class=" mt-3 mb-5 d-flex justify-content-end">
-                <div class="h5 ">
-                    <a href="" class="text-dark">
-                        Przypomnij hasło
-                    </a>
-                </div>
+                <ul  class="list-group">
+                    <li class="list-group-item" style="border: none;">
+                        <div class="h5">
+                            <a href="../index.php?page=passwordForget" class="text-dark">
+                                Przypomnij hasło
+                            </a>
+                        </div>
+                    </li>
+                    <li class="list-group-item" style="border: none;">
+                        <div class="h5">
+                            <a href="../index.php?page=passwordReset" class="text-dark">
+                                Zresetuj hasło
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             </div>
                 
             <div >

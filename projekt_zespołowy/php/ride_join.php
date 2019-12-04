@@ -27,6 +27,14 @@ if(isset($_SESSION['rideInfo']))
     }
     else
     {
+        // sprawdzenie czy to nie kierowca chce dołączyć do przejazdu
+        if($id == $ride['Driver'])
+        {
+            $_SESSION['rideJoinMessage'] = "Jesteś kierowcą tego przejazdu";
+            header('Location: ../index.php?page=rideDetails');
+            exit();
+        }
+        
         // update dostępnych miejsc
         $placesLeft = $ride['PlacesLeft'] -1;
         $sql = "Update RideInfo SET `PlacesLeft`='$placesLeft' WHERE `ID` ='$rideID'";

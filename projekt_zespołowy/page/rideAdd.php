@@ -1,66 +1,147 @@
 <!-- formularz logowania-->
 <?php
 include 'php/check_user_logged.php';
+//include 'php/reset_ride_search.php';
+include 'php/ride_add.php';
+unsetRideAddVariables();
 ?>
 <script src="js/addRide.js"></script>
+<script src="js/changeInputsValue.js"></script>
+<style>
+.pac-item{
+    height: 40px;
+    font-size: 26px;
+    padding-top: 7px;
+}
+.pac-item-query{
+    font-size: 26px;
+}
+.pac-icon{
 
-<div class="container-fluid h-100" style="min-width: 250px;">
-    <div class="w-100" style="height: 40%; max-height: 40%;">
-        <div class="w-100 d-flex justify-content-between">
-            <div class="d-inline-block mt-5 mb-5 ml-5">
-                <a href="?page=menu" class="h4 text-dark">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                    Wstecz
-                </a>
-            </div>
-            <div class="d-inline-block mr-5 mt-5">
-                <button type="button" class="btn">
-                    <a href="?page=sideMenu" class="text-body">
-                        <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
-                    </a>
-                </button>
-            </div>
+}
+</style>
+<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000;">
+    </div>
+<div class="container-fluid" style="min-width: 250px;">
+    <div class="w-100 d-flex justify-content-end">
+        <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
+            <button type="button" class="btn">
+                <!--<a href="?page=sideMenu" class="text-body">-->
+                    <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
+                <!--</a>-->
+            </button>
+        </div>
+    </div>
+    
+    <div class="w-100 h-50" style="min-height: 50vh">
+        
+        <div class="ml-5 mt-5">
+            <div class="display-2" ><strong>Dokąd jedziemy?</strong></div>
         </div>
         
-        <div class="w-100 ">
-            
-            <div class="ml-5 mt-5">
-                <div class="display-2" ><strong>Dodaj przejazd</strong></div>
-            </div>
-            
-            <!-- kontener zawierający opcje do wyboru pod mapą -->
-            <div class="w-75 mx-auto">
-                <div class="mt-5 shadow p-3 mb-5 bg-light rounded">
+        <!-- kontener zawierający treść pod nagłówkiem -->
+        <div class="w-75 mx-auto">
+            <form action="php/ride_add.php" method="POST">
+                <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
-                            <div class="col-10">
-                                <i class="fa fa-compass" style="font-size: 36px;"></i>
-                                <input id="start" class="ml-3" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
-                            </div> 
-                        </div>
-                    </button>
-                </div>
-                <div class=" mt-5 shadow p-3 mb-5 bg-light rounded">
-                    <button type="button" class="btn btn-lg btn-block">
-                        <div class="h3 text-left">
-                            <div class="col-10">
+                            <div class="col-12">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 36px; border:none; font-color: black;">
                             </div>
                         </div>
                     </button>
                 </div>
-            </div>
+                <div class=" my-5 shadow p-3 bg-light rounded">
+                    <button type="button" class="btn btn-lg btn-block">
+                        <div class="h3 text-left">
+                            <div class="col-10">
+                                <i class="fa fa-compass" style="font-size: 36px;"></i>
+                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 36px; border:none; font-color: black;">
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
+                <div class="position-fixed" style="top: 415px; right: 250px;">
+                    <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
+                        <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
+                            <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="my-5 d-flex justify-content-between">
+                    <div class="row">
+                        <div class="col-8 h2">Ilość wolnych miejsc</div>
+                        <div class="d-inline-block col-2 w-25 h2">
+                            <input type="number" min="0" max="10" name="places" placeholder="Ilość" style="border:none;">
+                        </div>
+                        
+                        <div class="col-8 h2">Data i godzina</div>
+                        <div class="col-8 h3 text-primary">
+                            Dzisiaj : <div class="d-inline-block" id="hour" name="hour">9:27</div>
+                        </div>
+                    </div>
+                    <div class="mt-3" id="btn-dalej">
+                        <input type="submit" value="DALEJ" name="submit" class="btn text-white btn-lg bg-primary py-2" style="width: 200px; font-size: 28px; border-radius: 30px;">
+                    </div>
+                </div>
+            </form>
+            
+            <div class="border-bottom border-dark"></div>
+            
+            <table class="table-borderless w-100">
+                <tr>
+                    <td class="">
+                        <div class="h3 my-4">
+                            <i class="fa fa-star" aria-hidden="true" style="font-size: 36px;"></i>
+                            <a href="" class="ml-3 text-dark">Ulubione miejsca</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="h3 my-4 ml-2"> 
+                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 36px;"></i>
+                            <a href="" class="ml-3 text-dark">Ostatnio wyszukiwane</a>
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="h3 my-4">
+                            <i class="fa fa-car" aria-hidden="true" style="font-size: 28px;"></i>
+                            <a href="" class="ml-3 text-dark">Aktualne przejazdy</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <div class="h3 my-4 ml-2">
+                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 28px;"></i>
+                            <a href="" class="ml-3 text-dark">Dodaj przejazd</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div id="map"></div>
         </div>
+        
+        
     </div>
-    <div class="w-100" style="height: 60%; max-height: 60%;">
-        <div id="map" class="container-fluid h-100"></div>
-    </div>
-    <button type="button" id="addride" class="btn btn-success btn-block mb-5 justify-content-center" style="height: 120px; position: absolute; top:85%; width: 50%; left: 25%; display: none;">
-        <a href="?page=rideAdd" class="text-white h3">
-        DODAJ PRZEJAZD
-        </a>
-    </button>
+    <div id="XD"></div>
 </div>
+<script>
+    var button = document.getElementById('btn-dalej');
+    button.addEventListener("click", function(){
+        alert("Hello World!"); 
+        document.getElementById("XD").innerHTML='<object type="type/php" data="rideAdd.php" ></object>';
+    });
+</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
         async defer></script>
+        
+<script src="js/jquery.js"></script>
+<script src="js/openSideMenu.js"></script>

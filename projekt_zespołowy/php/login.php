@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-echo "SIEMA";
 if (isset($_POST["submit"])) {
     session_start();
 
@@ -24,7 +23,7 @@ if (isset($_POST["submit"])) {
         $password = $_POST['password'];
         $r->email['field'] = $email;
         $r->password['field'] = $password;
-        $sql = "SELECT * FROM User WHERE `Email`='$email' or `Login` = '$email'";
+        $sql = "SELECT * FROM User WHERE BINARY `Email`='$email' or `Login` = '$email'";
        
         $result = $conn->query($sql);
         $user = $result->fetch_assoc();

@@ -3,6 +3,8 @@
 include 'php/check_user_logged.php';
 ?>
 
+    <div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000">
+    </div>
     <div class="container-fluid" style="min-width: 250px;">
         <div class="w-100 py-5 pl-5 bg-light">
             <div class="display-3 font-weight-bold">
@@ -18,12 +20,12 @@ include 'php/check_user_logged.php';
                     else
                         echo "BŁĄD";
                 ?>
-                <div class="float-right mr-5">
-                    <a href="?page=sideMenu" class="text-body">
+                <div class="float-right mr-5" id="btn-side-menu">
+                    <!--<a href="?page=sideMenu" class="text-body">-->
                         <button type="button" class="btn">
                             <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
                         </button>
-                    </a>
+                    <!--</a>-->
                 </div>
             </div>
         </div>
@@ -50,6 +52,8 @@ include 'php/check_user_logged.php';
             </div>
         
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/jquery.js"></script>
+<script src="js/openSideMenu.js"></script>
