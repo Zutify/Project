@@ -15,7 +15,7 @@ include 'php/reset_ride_search.php';
                 </div>
     <div class="h-25 bg-light pb-5" style="padding-top: 175px;">
         <div class="w-75 mx-auto">
-            <i class="fa fa-user-circle-o" class="d-inline-block" style="color:green; font-size: 150px; " aria-hidden="true"></i>
+            <i class="fa fa-user-circle" class="d-inline-block" style="color:green; font-size: 150px; " aria-hidden="true"></i>
             <div class="d-inline-block ml-5">
                 <div class="h1" id="userName">
                     <?php

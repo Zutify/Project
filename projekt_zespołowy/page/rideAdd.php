@@ -45,9 +45,9 @@ unsetRideAddVariables();
                 <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
-                            <div class="col-12">
+                            <div class="col-10">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 36px; border:none; font-color: black;">
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
                         </div>
                     </button>
@@ -57,18 +57,16 @@ unsetRideAddVariables();
                         <div class="h3 text-left">
                             <div class="col-10">
                                 <i class="fa fa-compass" style="font-size: 36px;"></i>
-                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 36px; border:none; font-color: black;">
+                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
                         </div>
                     </button>
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-                <div class="position-fixed" style="top: 415px; right: 250px;">
+                <div class="position-fixed" style="top: 430px; right: 250px;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
-                        <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 80px; height: 80px;">
-                            <i class="fa fa-exchange text-primary" style="font-size: 64px; transform: rotate(90deg);"></i>
-                        </div>
+                            <i class="fa fa-sync" id="changeInputs" style="font-size: 44px; transform: rotate(90deg); color: black;"></i>
                     </button>
                 </div>
                 
@@ -103,8 +101,8 @@ unsetRideAddVariables();
                 </tr>
                 <tr>
                     <td class="">
-                        <div class="h3 my-4 ml-2"> 
-                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 36px;"></i>
+                        <div class="h3 my-4 ml-1"> 
+                            <i class="fa fa-map-marker-alt" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Ostatnio wyszukiwane</a>
                             </div>
                     </td>
@@ -112,15 +110,15 @@ unsetRideAddVariables();
                 <tr>
                     <td class="">
                         <div class="h3 my-4">
-                            <i class="fa fa-car" aria-hidden="true" style="font-size: 28px;"></i>
+                            <i class="fa fa-car" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Aktualne przejazdy</a>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td class="">
-                        <div class="h3 my-4 ml-2">
-                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 28px;"></i>
+                        <div class="h3 my-4 ml-1">
+                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Dodaj przejazd</a>
                         </div>
                     </td>
@@ -145,3 +143,4 @@ unsetRideAddVariables();
         
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
+<script src="js/changeInputsanimation.js"></script>

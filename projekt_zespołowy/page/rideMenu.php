@@ -62,11 +62,11 @@ include 'php/reset_ride_search.php';
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-                <div class="position-fixed" style="top: 425px; right: 250px;">
+                <div class="position-fixed" style="top: 430px; right: 250px;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
-                        <div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 60px; height: 60px;">
-                            <i class="fa fa-exchange text-primary" style="font-size: 44px; transform: rotate(90deg);"></i>
-                        </div>
+                        <!--<div class="h3 text-center pt-2 bg-white rounded-circle" style="width: 60px; height: 60px;">-->
+                            <i class="fa fa-sync" id="changeInputs" style="font-size: 44px; transform: rotate(90deg); color: black;"></i>
+                        <!--</div>-->
                     </button>
                 </div>
                 
@@ -104,8 +104,8 @@ include 'php/reset_ride_search.php';
                 </tr>
                 <tr>
                     <td class="">
-                        <div class="h3 my-4 ml-2"> 
-                            <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 36px;"></i>
+                        <div class="h3 my-4 ml-1"> 
+                            <i class="fa fa-map-marker-alt" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Ostatnio wyszukiwane</a>
                             </div>
                     </td>
@@ -113,15 +113,15 @@ include 'php/reset_ride_search.php';
                 <tr>
                     <td class="">
                         <div class="h3 my-4">
-                            <i class="fa fa-car" aria-hidden="true" style="font-size: 28px;"></i>
+                            <i class="fa fa-car" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Aktualne przejazdy</a>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td class="">
-                        <div class="h3 my-4 ml-2">
-                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 28px;"></i>
+                        <div class="h3 my-4 ml-1">
+                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 36px;"></i>
                             <a href="" class="ml-3 text-dark">Dodaj przejazd</a>
                         </div>
                     </td>
@@ -138,3 +138,4 @@ include 'php/reset_ride_search.php';
         
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
+<script src="js/changeInputsanimation.js"></script>

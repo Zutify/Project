@@ -22,7 +22,7 @@ include 'php/reset_session.php';
     <?php endif;?>
     <!--<link rel="stylesheet" type="text/css" href="style/zutify.css">-->
     <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- ikonek można szukać na stronie : 
     https://fontawesome.com/v4.7.0/icon/
     -->
@@ -49,7 +49,7 @@ include 'php/reset_session.php';
 
 </head>
 
-<body style="height: 100vh">
+<body style="height: 100vh;">
     <?php
         //sprawdzenie czy $_GET posiada 'page' i czy $_GET['page'] nie jest puste
         //zamiast '{}' używam : aby generować kod html poza znacznikami php / taki tip jakby ktoś nie wiedział

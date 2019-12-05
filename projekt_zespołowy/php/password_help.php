@@ -38,7 +38,7 @@ if(isset($_POST['submitReset']))
         $email = $_GET['email'];
         $vkey = $_GET['vkod'];
     }
-
+    
     $sql = "SELECT * FROM `User` WHERE `Email` LIKE '$email';";
     $result = $conn->query($sql);
     if($result->num_rows == 1) {
@@ -52,9 +52,11 @@ if(isset($_POST['submitReset']))
     $result = $conn->query($sql);
 
     if($result->num_rows == 1){
+        
+        
         $sql = "UPDATE ForgotPasswordKey SET `WasUsed` = 1 WHERE `VerificationKey` LIKE '$vkey' AND `WasUsed` = '0' AND `UserID` = '$user[ID]';";
         $conn->query($sql);
-
+    
         $password = md5($_POST["newPassword"]);
         $sql = "UPDATE User SET `Password` = '$password' WHERE `ID` = '$user[ID]';";
         $conn->query($sql);
@@ -62,7 +64,7 @@ if(isset($_POST['submitReset']))
         echo "Blad";
     }
 
-
+    
 
 }
 

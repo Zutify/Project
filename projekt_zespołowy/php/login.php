@@ -16,18 +16,18 @@ if (isset($_POST["submit"])) {
             $r->error = true;
         }
     }
-
+    
     // sprawdzenie po mailu lub po loginie
     if (!isset($r->email)) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $r->email['field'] = $email;
         $r->password['field'] = $password;
-        $sql = "SELECT * FROM User WHERE BINARY `Email`='$email' or `Login` = '$email'";
+        $sql = "SELECT * FROM User WHERE `Email`='$email' or `Login` = '$email'";
        
         $result = $conn->query($sql);
         $user = $result->fetch_assoc();
-       
+        
         if($user){
             if($user['Email'] === $email){
                 $hash = md5($password);

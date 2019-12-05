@@ -6,3 +6,4 @@ function changeInputsValue(){
         document.getElementById("dest").value = start;
     }
 }
+

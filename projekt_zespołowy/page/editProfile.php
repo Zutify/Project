@@ -4,10 +4,10 @@ include 'php/check_user_logged.php';
 include 'php/user_data.php';
 ?>
 
-<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000">
-    </div>
+<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100vh; display: none; z-index: 10000">
+</div>
     
-<div class="container-fluid" style="min-width: 250px;">
+<div class="container-fluid w-100" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-end">
         <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
             <button type="button" class="btn">
@@ -18,9 +18,10 @@ include 'php/user_data.php';
         </div>
     </div>
     
-     <div class="container-fluid mt-3 mb-5 h2">
-        <div class="row">
-            <div class="col border-top border-bottom border-dark py-5">
+    <div class="container-fluid mt-3 mb-5 h2">
+        
+        <div class="row  w-100">
+            <div class="col-12 border-top border-bottom border-dark py-5">
                 <div class="text-center">
                     <a href="" class="text-body">
                         Zweryfikuj adres e-mail
@@ -28,7 +29,8 @@ include 'php/user_data.php';
                 </div>
             </div>
         </div>
-        <div class="row">
+        
+        <div class="row w-100">
             <div class="col-8 border-bottom border-dark py-5 pl-5">
                  <div class="pl-3">
                      <div class="row">
@@ -43,6 +45,7 @@ include 'php/user_data.php';
                     </div>
                 </div>
             </div>
+            
             <div class="col-4 border-bottom border-left border-dark py-5">
                 <div class="pl-3">
                    <div class="row">
@@ -57,8 +60,9 @@ include 'php/user_data.php';
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+            
+        </div> <!-- end row -->
+        <div class="row w-100">
             <div class="col border-bottom border-dark py-5 pl-5">
                  <div class="pl-3">
                     <div class="row">
@@ -71,8 +75,8 @@ include 'php/user_data.php';
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        </div> <!-- end row -->
+        <div class="row w-100">
             <div class="col border-bottom border-dark py-5 pl-5">
                 <div class="pl-3">
                     <div>
@@ -82,13 +86,15 @@ include 'php/user_data.php';
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row" style="height: 80px;">
+        </div><!-- end row-->
+        
+        <div class="row w-100" style="height: 80px;">
             <div class="col border-bottom border-dark">
                 <!-- empty row-->
             </div>
         </div>
-        <div class="row">
+        
+        <div class="row w-100">
             <div class="col border-bottom border-dark py-5 pl-5">
                 <div class="pl-3">
                     <a href="" class="text-body">
@@ -99,8 +105,9 @@ include 'php/user_data.php';
                     Zarządzaj ulubionymi miejscami podróży
                 </div>
             </div>
-        </div>
-    </div>
+        </div><!-- end row -->
+        
+    </div><!-- end container fluid-->
     
     <div class="w-75 mx-auto mt-5">
         <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;" id="btn-action">
@@ -110,17 +117,18 @@ include 'php/user_data.php';
         </button>
     </div>
     
-    <div id="driverInfo">
-    </div>
+    <div id="driverInfo"></div>
+
 </div>
+
 <script src="js/jquery.js"></script>
 <script>
     $(document).ready(function () {
         $('#btn-action').click(function(){
             document.getElementById('btn-action').style.display = "none";
             $('#driverInfo').hide().load( 'https://zutify.000webhostapp.com/index.php?page=driverInfo' ).fadeIn("slow");
-            $('body').bind('touchmove', function(e){e.preventDefault()})
-            document.getElementById('sideMenu').style.height = "130%";
+            //$('body').bind('touchmove', function(e){e.preventDefault()})
+            document.getElementById('sideMenu').style.height = "130vh";
         });
     });
 </script>

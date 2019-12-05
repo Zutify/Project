@@ -118,6 +118,10 @@ function initMap() {
       ].join(' ');
     }
     
+    // KUBA kod
+    //document.cookie = "startX="+place.geometry.location.lat()+ "; startY="+place.geometry.location.lng()+"; destX="+placedest.geometry.location.lat()+"; destY="+placedest.geometry.location.lng()+';"';
+    document.cookie = "startX=Poszlo";
+    
 		if (locsetstart && locsetdest) {
     	marker.setVisible(false);
         markerdest.setVisible(false);
