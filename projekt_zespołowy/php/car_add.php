@@ -27,7 +27,9 @@ if(isset($_POST["submit"]))
                 unset($_SESSION['carError']);
             }
             header('Location: ../index.php?page=menu');
+            header('Location: ../index.php?page=menu');
             exit();
+
         }
     }
     else
