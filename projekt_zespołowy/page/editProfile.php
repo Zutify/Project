@@ -104,9 +104,9 @@ include 'php/user_data.php';
     
     <div class="w-75 mx-auto mt-5">
         <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;" id="btn-action">
-            <!--<a href="?page=driverInfo" class="text-white h3" >-->
+            <a href="?page=driverInfo" class="text-white h3" >
                 <span class="text-white h3">JESTEM KIEROWCĄ</span>
-            <!--</a>-->
+            </a>
         </button>
     </div>
     
