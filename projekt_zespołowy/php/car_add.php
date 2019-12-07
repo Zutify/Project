@@ -27,21 +27,13 @@ if(isset($_POST["submit"]))
                 unset($_SESSION['carError']);
             }
             header('Location: ../index.php?page=menu');
-<<<<<<< HEAD
-=======
-            header('Location: ../index.php?page=menu');
->>>>>>> f7d0003541ea5ad7d993d972e91729cab71dd585
             exit();
 
         }
     }
     else
     { 
-<<<<<<< HEAD
-        header('Location: ../index.php?page=driverInfo');
-=======
-        header('Location: ../index.php?page=rideAdd');
->>>>>>> f7d0003541ea5ad7d993d972e91729cab71dd585
+        header('Location: ../index.php?page=editProfile');
         exit();
     } 
 }

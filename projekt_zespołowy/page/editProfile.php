@@ -122,7 +122,7 @@ include 'php/user_data.php';
     $(document).ready(function () {
         $('#btn-action').click(function(){
             document.getElementById('btn-action').style.display = "none";
-            $('#driverInfo').hide().load( 'https://zutify.000webhostapp.com/index.php?page=driverInfo' ).fadeIn("slow");
+            $('#driverInfo').hide().load( '?page=driverInfo' ).fadeIn("slow");
             document.getElementById('sideMenu').style.height = "130vh";
         });
     });

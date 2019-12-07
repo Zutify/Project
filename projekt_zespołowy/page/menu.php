@@ -46,9 +46,14 @@ include 'php/check_user_logged.php';
                     <div class="h3">SZUKAJ PRZEJAZDU</div>
                 </button>
             </a>
+            <a href="?page=currentRides" class="text-white" >
+                <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
+                    <div class="h3">TWOJE PRZEJAZDY(NA RAZIE TU BUTTON)</div>
+                </button>
+            </a>
         </div>
         
-        <div style="background-image:url('../style/img/rysunek.svg');width: 100%; height: 100%; background-size: cover; position: absolute;top:0; left:0; z-index:-1;background-color:#fff;">
+        <div style="background-image:url('style/img/rysunek.svg');width: 100%; height: 100%; background-size: cover; position: absolute;top:0; left:0; z-index:-1;background-color:#fff;">
             </div>
         
     </div>
