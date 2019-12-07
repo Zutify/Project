@@ -1,7 +1,6 @@
 <?php
 include 'db_connection.php';
 
-// W TRAKCIE ROBIENIA, PROSZE NIE ZMIENIAĆ
 // jesli zmienne sa ustawione
 if(isset($_SESSION['start']) and isset($_SESSION['dest']))
 {

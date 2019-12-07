@@ -30,7 +30,7 @@ checkRideInfo();
                         }
                     ?>
                 </div>
-                <i class="fa fa-long-arrow-right d-inline-block" aria-hidden="true"></i>
+                <i class="fa fa-arrow-right d-inline-block" aria-hidden="true"></i>
                 <div id="" class="d-inline-block">
                     <?php
                         if(isset($_SESSION['dest']))

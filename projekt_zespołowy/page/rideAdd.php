@@ -45,7 +45,7 @@ unsetRideAddVariables();
                 <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
-                            <div class="col-10">
+                            <div class="col-12">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
                                 <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
@@ -55,7 +55,7 @@ unsetRideAddVariables();
                 <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
-                            <div class="col-10">
+                            <div class="col-12">
                                 <i class="fa fa-compass" style="font-size: 36px;"></i>
                                 <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
                             </div>
@@ -64,7 +64,7 @@ unsetRideAddVariables();
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
-                <div class="position-fixed" style="top: 430px; right: 250px;">
+                <div style="top: 430px; right: 250px; position: absolute;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
                             <i class="fa fa-sync" id="changeInputs" style="font-size: 44px; transform: rotate(90deg); color: black;"></i>
                     </button>
@@ -129,15 +129,7 @@ unsetRideAddVariables();
         
         
     </div>
-    <div id="XD"></div>
 </div>
-<script>
-    var button = document.getElementById('btn-dalej');
-    button.addEventListener("click", function(){
-        alert("Hello World!"); 
-        document.getElementById("XD").innerHTML='<object type="type/php" data="rideAdd.php" ></object>';
-    });
-</script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
         async defer></script>
         

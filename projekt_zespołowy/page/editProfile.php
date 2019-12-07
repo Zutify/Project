@@ -11,9 +11,7 @@ include 'php/user_data.php';
     <div class="w-100 d-flex justify-content-end">
         <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
             <button type="button" class="btn">
-                <!--<a href="?page=sideMenu" class="text-body">-->
                     <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
-                <!--</a>-->
             </button>
         </div>
     </div>
@@ -111,9 +109,7 @@ include 'php/user_data.php';
     
     <div class="w-75 mx-auto mt-5">
         <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;" id="btn-action">
-            <a href="?page=driverInfo" class="text-white h3" >
                 <span class="text-white h3">JESTEM KIEROWCĄ</span>
-            </a>
         </button>
     </div>
     
@@ -127,7 +123,6 @@ include 'php/user_data.php';
         $('#btn-action').click(function(){
             document.getElementById('btn-action').style.display = "none";
             $('#driverInfo').hide().load( 'https://zutify.000webhostapp.com/index.php?page=driverInfo' ).fadeIn("slow");
-            //$('body').bind('touchmove', function(e){e.preventDefault()})
             document.getElementById('sideMenu').style.height = "130vh";
         });
     });
