@@ -8,7 +8,12 @@ include 'php/user_data.php';
 <div class="container-fluid" style="min-width: 250px;">
 
     <div class="text-center" style="margin-top: 80px;" id="btn-close">
+<<<<<<< HEAD
         <i class="fa fa-times-circle" style="font-size: 80px; color: grey; opacity: 0.5;" aria-hidden="true"></i>
+=======
+        <a href="?=editProfile"><i class="fa fa-times-circle" style="font-size: 80px; color: grey; opacity: 0.5;" aria-hidden="true"></i>
+        </a>
+>>>>>>> f7d0003541ea5ad7d993d972e91729cab71dd585
     </div>
 
     <div class="h2 ml-5 my-5">
