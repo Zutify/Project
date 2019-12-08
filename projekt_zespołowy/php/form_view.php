@@ -5,7 +5,12 @@ function get_response() {
         return $_SESSION['login_response']; 
     }elseif(isset($_SESSION['register_response']) && !empty($_SESSION['register_response'])){
         return $_SESSION['register_response'];
-    }else{
+    }elseif(isset($_SESSION['forgot_password']) && !empty($_SESSION['forgot_password'])){
+        return $_SESSION['forgot_password'];
+    }elseif(isset($_SESSION['reset_password']) && !empty($_SESSION['reset_password'])){
+        return $_SESSION['reset_password'];
+    }
+    else{
         return 0;
     }
 }

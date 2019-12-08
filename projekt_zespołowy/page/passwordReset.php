@@ -26,7 +26,7 @@ if(isset($_GET['email']) == true){
             if(isset($email) && isset($vkey)){
               echo "<form action='php/password_help.php?vkod=$vkey&email=$email' method='post' >";  
             }else{
-                echo "<form action='php/password_help.php?vkod=$vkey&email=$email' method='post' >";
+                echo "<form action='php/password_help.php' method='post' >";
             }
         ?>
         
