@@ -1,3 +1,4 @@
+
 <!-- formularz logowania-->
 <?php
 include 'php/check_user_logged.php';
@@ -129,4 +130,5 @@ include 'php/user_data.php';
 </script>
         
 <script src="js/jquery.js"></script>
+
 <script src="js/openSideMenu.js"></script>

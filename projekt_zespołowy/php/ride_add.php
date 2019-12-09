@@ -1,3 +1,4 @@
+
 <?php
 include 'db_connection.php';
 include 'user_data.php';
@@ -198,5 +199,6 @@ function unsetRideAddVariables()
     if(isset($_SESSION['destLocal']))
         unset($_SESSION['destLocal']);
 }   
+
 
 ?>

@@ -18,8 +18,6 @@ include 'php/reset_ride_search.php';
 
 }
 </style>
-<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000;">
-    </div>
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-end">
         <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
