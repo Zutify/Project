@@ -1,8 +1,12 @@
+
 <!-- formularz logowania-->
 <?php
 include 'php/check_user_logged.php';
 include 'php/user_data.php';
 ?>
+
+<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100vh; display: none; z-index: 10000">
+</div>
     
 <div class="container-fluid w-100" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-end">
@@ -119,11 +123,12 @@ include 'php/user_data.php';
     $(document).ready(function () {
         $('#btn-action').click(function(){
             document.getElementById('btn-action').style.display = "none";
-            $('#driverInfo').hide().load( 'https://zutify.000webhostapp.com/index.php?page=driverInfo' ).fadeIn("slow");
+            $('#driverInfo').hide().load( '?page=driverInfo' ).fadeIn("slow");
             document.getElementById('sideMenu').style.height = "130vh";
         });
     });
 </script>
         
 <script src="js/jquery.js"></script>
+
 <script src="js/openSideMenu.js"></script>

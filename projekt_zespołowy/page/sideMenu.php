@@ -1,8 +1,9 @@
+
 <!-- formularz logowania-->
 <?php
 session_start();
-include 'php/check_user_logged.php';
-include 'php/reset_ride_search.php';
+include '../php/check_user_logged.php';
+include '../php/reset_ride_search.php';
 ?>
 
 <div class="container-fluid" style="min-width: 250px;">
@@ -13,7 +14,7 @@ include 'php/reset_ride_search.php';
                         </button>
                     <!--</a>-->
                 </div>
-    <div class="h-25 bg-light pb-5" style="padding-top: 175px;">
+    <div class="h-25 bg-light pb-5" style="padding-top: 70px;">
         <div class="w-75 mx-auto">
             <i class="fa fa-user-circle" class="d-inline-block" style="color:green; font-size: 150px; " aria-hidden="true"></i>
             <div class="d-inline-block ml-5">
@@ -76,4 +77,22 @@ include 'php/reset_ride_search.php';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<script src="js/closeSideMenu.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#side-menu-noclick').click(function(){
+            document.getElementById('btn-side-menu').style.display = "block";
+            $.when($('#sideMenu, #side-menu-noclick').fadeOut("slow")).done(function() {
+            $('#sideMenu *').detach()
+            $('#side-menu-noclick').detach()
+            });
+        });
+
+        $('#btn-side-menuClose').click(function(){
+            document.getElementById('btn-side-menu').style.display = "block";
+            $.when($('#sideMenu, #side-menu-noclick').fadeOut("slow")).done(function() {
+            $('#sideMenu *').detach()
+            $('#side-menu-noclick').detach()
+            });
+        });
+    });
+</script>

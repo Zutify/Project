@@ -1,6 +1,6 @@
+
 <?php
 include 'db_connection.php';
-session_start();
 include 'user_data.php';
 
 // obsługa formularza z rideAdd
@@ -199,5 +199,6 @@ function unsetRideAddVariables()
     if(isset($_SESSION['destLocal']))
         unset($_SESSION['destLocal']);
 }   
+
 
 ?>
