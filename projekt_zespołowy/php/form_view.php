@@ -1,5 +1,6 @@
 <?php
 
+
 function get_response() {
     if (isset($_SESSION['login_response']) && !empty($_SESSION['login_response'])) {
         return $_SESSION['login_response']; 
@@ -14,6 +15,16 @@ function get_response() {
         return 0;
     }
 }
+
+// function get_response() {
+//     if (isset($_SESSION['login_response']) && !empty($_SESSION['login_response'])) {
+//         return $_SESSION['login_response']; 
+//     }elseif(isset($_SESSION['register_response']) && !empty($_SESSION['register_response'])){
+//         return $_SESSION['register_response'];
+//     }else{
+//         return 0;
+//     }
+// }
 
 
 //fills form with used values

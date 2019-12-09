@@ -5,8 +5,7 @@ include 'php/check_user_logged.php';
 include 'php/ride_add.php';
 unsetRideAddVariables();
 ?>
-<script src="js/addRide.js"></script>
-<script src="js/changeInputsValue.js"></script>
+
 <style>
 .pac-item{
     height: 40px;
@@ -20,15 +19,12 @@ unsetRideAddVariables();
 
 }
 </style>
-<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000;">
-    </div>
+<script src="js/addRide.js"></script>
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-end">
         <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
             <button type="button" class="btn">
-                <!--<a href="?page=sideMenu" class="text-body">-->
                     <i class="fa fa-bars" aria-hidden="true" style="font-size: 64px;"></i>
-                <!--</a>-->
             </button>
         </div>
     </div>
@@ -90,44 +86,12 @@ unsetRideAddVariables();
             
             <div class="border-bottom border-dark"></div>
             
-            <table class="table-borderless w-100">
-                <tr>
-                    <td class="">
-                        <div class="h3 my-4">
-                            <i class="fa fa-star" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="" class="ml-3 text-dark">Ulubione miejsca</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="">
-                        <div class="h3 my-4 ml-1"> 
-                            <i class="fa fa-map-marker-alt" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="" class="ml-3 text-dark">Ostatnio wyszukiwane</a>
-                            </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="">
-                        <div class="h3 my-4">
-                            <i class="fa fa-car" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="" class="ml-3 text-dark">Aktualne przejazdy</a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="">
-                        <div class="h3 my-4 ml-1">
-                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="" class="ml-3 text-dark">Dodaj przejazd</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div id="map"></div>
+            
+            
         </div>
-        
-        
+    </div>
+    <div id="mapdiv" style="position: absolute; top: 40%; height: 60%; width: 100%; display: none;">
+        <div id="map" class="container-fluid h-100"></div>
     </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
@@ -136,3 +100,5 @@ unsetRideAddVariables();
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
 <script src="js/changeInputsanimation.js"></script>
+
+<script src="js/changeInputsValue.js"></script>
