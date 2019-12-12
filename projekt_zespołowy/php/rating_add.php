@@ -7,7 +7,7 @@ if(isset($_POST["submitRate"]))
 {
     if(isset($_POST['star']))
     {
-        $rate = $_POST['radio'];
+        $rate = $_POST['star'];
 
         $sql = "INSERT into Rating VALUES (NULL, '1', $id, '$rate')";
             
@@ -32,7 +32,7 @@ if(isset($_POST["submitRate"]))
     }
     else
     { 
-        header('Location: ../route_rating.html');
+        header('Location: ../index.php?page=rideRate');
         exit();
     } 
 }
