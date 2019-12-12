@@ -1,5 +1,6 @@
 <?php
 include 'db_connection.php';
+session_start();
 
 // jesli zmienne sa ustawione
 if(isset($_SESSION['start']) and isset($_SESSION['dest']))
@@ -55,14 +56,7 @@ function showRides()
     if(isset($_SESSION['trip']))
     {  
     $trip = $_SESSION['trip'];
-    //foreach($row as $key=>$item)
-    //{
-    //    echo "$key -> $item<br>";
-    //}
-    //print_r($trip);
-  //  echo $trip['ID']." ";
- //   echo $trip['Date']." ";
-//    echo $trip['Places']." ";
+   
         $tripNum = 0;
         while($row = $trip->fetch_assoc())
         {
@@ -73,7 +67,7 @@ function showRides()
                     <div id="" class="d-inline-block">
                         '.$_SESSION['start'].'
                     </div>
-                    <i class="fa fa-long-arrow-right d-inline-block" aria-hidden="true"></i>
+                    <i class="fa fa-arrow-right d-inline-block" aria-hidden="true"></i>
                     <div id="" class="d-inline-block">
                         '.$_SESSION['dest'].'
                     </div>
@@ -138,19 +132,67 @@ function showCarPlaces($trip)
 // pobiera informacje wybranym o przejezdzie do tablicy sesyjnej 
 function checkRideInfo()
 {
-    if(isset($_GET['tripNumber']))
+    include 'db_connection.php';
+    session_start();
+    
+    // dla obsługi aktualne przejazdy użytkownika i dla aktualnych przejazdów wszystkich
+    if(isset($_SESSION['userRideInfo'] ))
     {
-        $trip = $_SESSION['trip'];
-        $num = 0;
-        while($row = $trip->fetch_assoc())
+        // pobranie z tabeli RideInfo id przejazdu z get'a
+        if(isset($_GET['rideID']))
         {
-            if($num == $_GET['tripNumber'])
+            $rideID = $_GET['rideID'];
+            
+            // zapytanie do uzyskania informacji o przejeździe
+            $sql = "SELECT * from RideInfo WHERE `ID` = $rideID";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) 
             {
-                // zawiera dane o przejezdzie w formie tablicy
+                // pobranie informacji o przejeździe
+                $row = $result->fetch_assoc();   
+                // przekazanie informacji w formie tablicy do tablicy sesyjnej
                 $_SESSION['rideInfo'] = $row;
-                break;
+                
+                // ustawienie startu i stopu przejazdu w tablicy sesyjnej
+                $sqlS = "SELECT * from Address WHERE `ID`= ".$row['Start']."";
+                $sqlD = "SELECT * from Address WHERE `ID`=".$row['Destination']."";
+                
+                $resS = $conn->query($sqlS);
+                $resD = $conn->query($sqlD);
+                // jeśli istnieją rekordy
+                if($resS->num_rows > 0 and $resD->num_rows > 0)
+                {
+                    // pobranie danych i ustawienie startu i destynacji w sesji
+                    $start = $resS->fetch_assoc();
+                    $dest = $resD->fetch_assoc();
+                    $_SESSION['start'] = $start['Street'];
+                    $_SESSION['dest'] = $dest['Street'];
+                }
+                else
+                    echo "Brak adresów w bazie";
+                
             }
-            $num += 1;
+            else
+                echo "Brak takiego przejazdu w bazie";
+        }   
+    }
+    else
+    {
+        // dla akcji z wyszukiwania przejazdów
+        if(isset($_GET['tripNumber']))
+        {
+            $trip = $_SESSION['trip'];
+            $num = 0;
+            while($row = $trip->fetch_assoc())
+            {
+                if($num == $_GET['tripNumber'])
+                {
+                    // zawiera dane o przejezdzie w formie tablicy
+                    $_SESSION['rideInfo'] = $row;
+                    break;
+                }
+                $num += 1;
+            }
         }
     }
 }

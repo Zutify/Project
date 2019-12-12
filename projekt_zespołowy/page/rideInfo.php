@@ -18,7 +18,7 @@ include 'php/ride_details.php';
     <div class="container-fluid mt-5">
         <div class="ml-5">
             <div class="my-3">
-                <i class="fa fa-circle-o d-inline-block" style="font-size: 48px; color: green;" aria-hidden="true"></i>
+                <i class="far fa-dot-circle d-inline-block" style="font-size: 48px; color: green;" aria-hidden="true"></i>
                 <div class="h3 ml-3 d-inline-block"  id="start">
                     <?php
                         if(isset($_SESSION['start']))
@@ -33,7 +33,7 @@ include 'php/ride_details.php';
                 </div>
             </div>
             <div class="my-3">
-                <i class="fa fa-circle-o d-inline-block" style="font-size: 48px; color: blue;" aria-hidden="true"></i>
+                <i class="far fa-dot-circle d-inline-block" style="font-size: 48px; color: blue;" aria-hidden="true"></i>
                 <div class="h3 ml-3 d-inline-block" id="destination">
                     <?php
                         if(isset($_SESSION['dest']))

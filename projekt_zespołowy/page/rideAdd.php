@@ -36,7 +36,7 @@ unsetRideAddVariables();
         </div>
         
         <!-- kontener zawierający treść pod nagłówkiem -->
-        <div class="w-75 mx-auto">
+        <div id="searchDiv" class="w-75 mx-auto">
             <form action="php/ride_add.php" method="POST">
                 <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
@@ -48,6 +48,9 @@ unsetRideAddVariables();
                         </div>
                     </button>
                 </div>
+                <div class="mt-n5" id="startError" style="position: fixed; display: none;">
+                    <label class="h4 text-danger">Pole nie może być puste</label>
+                </div>
                 <div class=" my-5 shadow p-3 bg-light rounded">
                     <button type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
@@ -58,6 +61,9 @@ unsetRideAddVariables();
                         </div>
                     </button>
                 </div>
+                <div class="mt-n5" id="destError" style="position: fixed; display: none;">
+                    <label class="h4 text-danger">Pole nie może być puste</label>
+                </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
                 <div style="top: 430px; right: 250px; position: absolute;">
@@ -66,20 +72,26 @@ unsetRideAddVariables();
                     </button>
                 </div>
                 
-                <div class="my-5 d-flex justify-content-between">
+                <div class="mt-5 mb-2 d-flex justify-content-between">
                     <div class="row">
-                        <div class="col-8 h2">Ilość wolnych miejsc</div>
-                        <div class="d-inline-block col-2 w-25 h2">
-                            <input type="number" min="0" max="10" name="places" placeholder="Ilość" style="border:none;">
+                        <div class="col-8 h2 mt-3">Ilość wolnych miejsc</div>
+                        <div class="d-inline-block col-2 w-25 h3 mt-3">
+                            <input id="seatsNumber" class="text-primary" type="number" min="0" max="10" name="places" placeholder="Ilość" style="border:none;">
+                        </div>
+                        <div class="col-8" id="seatsError" style="visibility: hidden;">
+                            <label class="h4 text-danger">Pole nie może być puste</label>
                         </div>
                         
-                        <div class="col-8 h2">Data i godzina</div>
-                        <div class="col-8 h3 text-primary">
-                            Dzisiaj : <div class="d-inline-block" id="hour" name="hour">9:27</div>
+                        <div class="col-6 h2 mt-3 mr-n3">Data i godzina</div>
+                        <input class="d-inline-block col-3 h3 text-primary border-0 mt-3 mr-n5"type="time" id="timePicker" name="tripStartTime">
+                        <input class="d-inline-block col-5 h3 text-primary border-0 mt-3 mr-n5" type="date" id="datePicker" name="tripStartDate" min="2019-01-01" max="2020-12-31">
+                        <div class="col-8" id="dateError" style="visibility: hidden;">
+                            <label id="dateErrorMsg" class="h4 text-danger">Pola nie mogą być puste</label>
                         </div>
                     </div>
-                    <div class="mt-3" id="btn-dalej">
-                        <input type="submit" value="DALEJ" name="submit" class="btn text-white btn-lg bg-primary py-2" style="width: 200px; font-size: 28px; border-radius: 30px;">
+                    <div class="mt-5" id="btn-dalej">
+                        <input id="checkdeststart" type="button" value="DALEJ" class="btn text-white btn-lg bg-primary py-2" style="width: 200px; font-size: 28px; border-radius: 30px;">
+                        <input id="rideSubmit" type="submit" name="rideConfirm" class="mx-auto btn text-white btn-lg bg-primary py-2" style="width: 200px; font-size: 28px; border-radius: 30px; position: absolute; top: 80%; display: none;">
                     </div>
                 </div>
             </form>
@@ -89,9 +101,39 @@ unsetRideAddVariables();
             
             
         </div>
+        <div id="recordDiv" class="w-75 mx-auto" style="display: none;">
+            <li class="my-4 list-group-item shadow">
+                    <div class="h3 p-4">
+                        <div id="startRecord" class="d-inline-block">
+                            
+                        </div>
+                        <i class="fa fa-arrow-right d-inline-block" aria-hidden="true"></i>
+                        <div id="destRecord" class="d-inline-block">
+                            
+                        </div>
+                        <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
+                        <div class="d-flex justify-content-between mt-3">
+                            <div>
+                                <div id="timeRecord" class="text-primary d-inline-block mr-4"></div>
+                                <div id="dateRecord" class="text-primary d-inline-block">
+                                </div>
+                            </div>
+                        <!-- ilość ikonek w zależności od ilości miejsc -->
+                            <div id="seatsNumberRecord">
+                                
+                            </div>
+                        </div>
+                    </div>
+            </li>
+        </div>
     </div>
-    <div id="mapdiv" style="position: absolute; top: 40%; height: 60%; width: 100%; display: none;">
+    <div>
+    </div>
+    <div id="mapdiv" style="position: absolute; top: 30%; height: 70%; width: 100%; visibility: hidden;">
         <div id="map" class="container-fluid h-100"></div>
+        <button type="button" id="rideSubmitDummy" class="w-50 btn btn-success btn-block mb-5" style="height: 120px; position:absolute; top: 80%; left:25%; z-index: 10000;">
+            <div class="h3">ZATWIERDŹ PRZEJAZD</div>
+        </button>
     </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
@@ -100,5 +142,5 @@ unsetRideAddVariables();
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
 <script src="js/changeInputsanimation.js"></script>
-
 <script src="js/changeInputsValue.js"></script>
+<script src="js/addRideForm.js"></script>

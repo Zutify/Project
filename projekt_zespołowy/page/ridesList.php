@@ -1,6 +1,8 @@
 <!-- formularz logowania-->
 <?php
+session_start();
 include 'php/check_user_logged.php';
+include 'php/rides_actual.php';
 ?>
 
 <style>
@@ -38,9 +40,8 @@ include 'php/check_user_logged.php';
         
         <!-- kontener zawierający opcje do wyboru pod mapą -->
         <div class="w-75 mx-auto mb-5">
-            <?php include 'php/rides_actual.php'; ?>
+            <?php showAllRides(); ?>
         </div>
-        
         
         
         

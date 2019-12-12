@@ -7,8 +7,7 @@ include 'php/user_details.php';
 <style>
 
 </style>
-<div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000;">
-    </div>
+
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-end">
         <div class="d-inline-block mr-5 mt-5" id="btn-side-menu">
@@ -24,10 +23,10 @@ include 'php/user_details.php';
         <?php if(isUserDriver()) :?>
         <ul class="nav nav-tabs justify-content-center" id="myTab" >
             <li class="nav-item ">
-                <a class="nav-link active" data-id="passenger-tab" href="#" >Pasażer</a>
+                <a class="nav-link h3 active" data-id="passenger-tab" href="#" >Pasażer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-id="driver-tab" href="#">Kierowca</a>
+                <a class="nav-link h3" data-id="driver-tab" href="#">Kierowca</a>
             </li>
         </ul>
         <?php endif;?>

@@ -9,10 +9,25 @@ if(isset($_GET['email']) == true){
 
 <div class="container-fluid" style="min-width: 250px;">
     <div class="mt-5 mb-5 ml-5">
-        <a href="index.php?page=login" class="h4 text-dark">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            Wstecz
-        </a>
+        <?php
+        // sprawdzanie do której strony przekierować jako wstecz
+        if(isset($_GET['mode']))
+        {
+            echo'
+            <a href="index.php?page=editProfile" class="h4 text-dark">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Wstecz
+            </a>';
+        }
+        else
+        {
+            echo'
+            <a href="index.php?page=login" class="h4 text-dark">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Wstecz
+            </a>';
+        }
+        ?>
     </div>
     
     <div class="mt-5 mb-5 ml-5">

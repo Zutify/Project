@@ -3,7 +3,7 @@
 //sprawdza czy użytkonik jest kierowcą
 function isUserDriver(){
     include 'db_connection.php';
-    $sql = "SELECT * FROM usercar WHERE `UserID`=".$_SESSION['userID'].";";
+    $sql = "SELECT * FROM UserCar WHERE `UserID`=".$_SESSION['userID'].";";
     $result = $conn->query($sql);
     //zwraca true jeżeli użytkownik jest kierowcą, a false gdy nim nie jest
     if($result->num_rows > 0){
@@ -29,6 +29,8 @@ require_once('ride_details.php');
 //Wypisuje przejazdy kierowcy
 function printRides($val){
     include 'db_connection.php';
+    session_start();
+    
     // true - wyświetla przejazdy w których jesteś kierowcą, false - pasażerem
     if($val){
         $sql = "SELECT * FROM RideInfo WHERE `Driver`=".$_SESSION['userID']." ORDER BY `Date` DESC, `LeavingTime` DESC LIMIT 10";
@@ -38,8 +40,12 @@ function printRides($val){
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         # dla wszystkich przejazdów w bazie narazie
-        echo '<ul class="list-group w-100">';
+        echo '<ul class="list-group w-75 mx-auto mt-5">';
+        // zapisanie zapytania do zmiennej sesyjnej
+        $_SESSION['userRideInfo'] = $result;
+        $_SESSION['ridesProfile'] = $result;
         
+        $num = 0;
         while($row = $result->fetch_assoc())
         {
             # zapytania do bazy o adresy przejazdu
@@ -62,10 +68,10 @@ function printRides($val){
             
             echo '<li class="my-4 list-group-item shadow"';
             if($row['Date'] < date("Y-m-d")){
-                echo ' style="filter: invert(100%);">';
+                echo ' style="filter: drop-shadow(8px 8px 8px gray) invert(25%);">';
             }else
             echo '>';
-            echo '    <a href="?page=rideDetails" class="text-body">
+            echo '    <a href="?page=rideDetails&rideID='.$row['ID'].'" class="text-body">
                     <div class="h3 p-4">
                         <div id="" class="d-inline-block">
                             '.$street['Street'].'
@@ -87,7 +93,7 @@ function printRides($val){
                         <!-- ilość ikonek w zależności od ilości miejsc -->';
                             echo '<div';
                             if($row['Date'] < date("Y-m-d")){
-                                echo ' style="filter: invert(100%);">';
+                                echo ' style="filter: grayscale(20%);">';
                             }else
                             echo '>';
                             showCarPlaces($row);
@@ -97,7 +103,7 @@ function printRides($val){
                 </a>
             </li>
             ';
-                
+            $num = $num +1;
                 
             }
             else

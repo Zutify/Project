@@ -1,17 +1,51 @@
 <!-- formularz logowania-->
 <?php
+session_start();
 include 'php/check_user_logged.php';
-include 'php/ride_details.php';
 include 'php/driver_data.php';
+include 'php/ride_details.php';
+include 'php/ride_actual.php';
 checkRideInfo();
+
 ?>
 <div class="container-fluid" style="min-width: 250px;">
     <div class="w-100 d-flex justify-content-between">
         <div class="d-inline-block mt-5 mb-5 ml-5">
-            <a href="?page=rideInfo" class="h4 text-dark">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                Wstecz
-            </a>
+            <!-- poprowadzenie linkiem do właściwej strony -->
+            <?php
+            if(isset($_SESSION['userRideInfo']))
+            {
+                // do aktualnych przejazdów użytkownika
+                unset($_SESSION['userRideInfo']);
+                if(isset($_SESSION['ridesProfile']))
+                {
+                    unset($_SESSION['ridesProfile']);
+                    echo '
+                    <a href="?page=currentRides" class="h4 text-dark">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            Wstecz
+                    </a>';
+                }
+                else
+                {
+                    // do aktualnych wszystkich przejazdów
+                    echo '
+                    <a href="?page=ridesList" class="h4 text-dark">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                            Wstecz
+                    </a>';
+                }
+            }
+            else
+            {
+                // do wyszukiwania przejazdu
+                echo '
+                <a href="?page=rideInfo" class="h4 text-dark">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                        Wstecz
+                </a>';
+            }
+            ?>
         </div>
     </div>
     

@@ -1,18 +1,91 @@
 
 <?php
 include 'db_connection.php';
-session_start();
 include 'user_data.php';
 
-//obsługa formularza z rideAdd
+// obsługa formularza z rideAdd
+if(isset($_POST["submit"]))
+{
+    if(!empty($_POST['start']) and !empty($_POST['dest']) and !empty($_POST['places']))
+    {
+        // wyciągnięcie z adresu ulicy i numeru jeśli podano
+        $start = $_POST['start'];
+        $dest = $_POST['dest'];
+    
+        $split1 = explode(", ", $start);
+        $split2 = explode(", ", $dest);
+        
+        print_r($split1);
+        print_r($split2);
+        
+        if(sizeof($split1) > 1)
+        {
+            $street = $split1[0];
+            $split = explode(" ", $street);
+            if(sizeof($split) > 1)
+            {
+                $num = intval($split[sizeof($split)-1]);
+                if(is_int($num)!= 0)
+                {
+                    $streetName = "";
+                    $_SESSION['startLocal'] = $split[sizeof($split)-1];
+                    for($i=0; $i < sizeof($split)-1; $i++)
+                    {
+                        $streetName .=$split[$i]." "; 
+                        $_SESSION['streetStart'] = $streetName;
+                    }
+                }
+            }
+            
+            $_SESSION['addStart'] = $street;
+        }
+        
+        if(sizeof($split2) > 1)
+        {
+            $street = $split2[0];
+            $split = explode(" ", $street);
+            if(sizeof($split) > 1)
+            {
+                $num = intval($split[sizeof($split)-1]);
+                if(is_int($num)!=0)
+                {
+                    $streetName = "";
+                    $_SESSION['destLocal'] = $split[sizeof($split)-1];
+                    for($i=0; $i < sizeof($split)-1; $i++)
+                    {
+                        $streetName .=$split[$i]." "; 
+                        $_SESSION['streetDest'] = $streetName;
+                    }
+                }
+            }
+            
+            $_SESSION['addDest'] = $street;
+        }
+        
+        
+        // docelowo pobranie godziny
+        $_SESSION['addTime'] = "9:40";
+        // docelowo pobranie ilości wolnych miejsc
+        $_SESSION['addPlaces'] = intval($_POST['places']);
+        
+        header('Location: ../index.php?page=rideAddConfirm');
+        exit();
+    }
+    else
+    { 
+        header('Location: ../index.php?page=rideAdd');
+        exit();
+    }   
+}
+
+//obsługa formularza z rideAddConfirm
 if(isset($_POST["rideConfirm"]))
 {
     // pobranie informacji z tablicy sesyjnej
-    $start = $_POST['start'];
-    $dest = $_POST['dest'];
-    $time = $_POST['tripStartTime'];
-    $date = $_POST['tripStartDate'];
-    $places = $_POST['places'];
+    $start = $_SESSION['addStart'];
+    $dest = $_SESSION['addDest'];
+    $time = $_SESSION['addTime'];
+    $places = $_SESSION['addPlaces'];
  
     // dodanie przejazdu do bazy danych
     
@@ -33,7 +106,7 @@ if(isset($_POST["rideConfirm"]))
        if(!$result)
        {
             $_SESSION['rideError'] = "Błąd przy dodawaniu adresu startowego";
-            header('Location: ../index.php?page=rideAdd');
+            header('Location: ../index.php?page=rideAddConfirm');
             exit();
        }
         else
@@ -65,7 +138,7 @@ if(isset($_POST["rideConfirm"]))
        if(!$result)
        {
             $_SESSION['rideError'] = "Błąd przy dodawaniu adresu dest";
-            header('Location: ../index.php?page=rideAdd');
+            header('Location: ../index.php?page=rideAddConfirm');
             exit();
        }
         else
@@ -83,12 +156,12 @@ if(isset($_POST["rideConfirm"]))
     
     // dodanie przejazdu do bazy RideInfo
     // $id - id zalogowanego użytkownika, z user_data.php
-    $sqlRide = "INSERT into RideInfo VALUES (NULL, '$id', '$date', '".$_SESSION['startID']."', '".$_SESSION['destID']."', '$places', '$places', '$time')";
+    $sqlRide = "INSERT into RideInfo VALUES (NULL, '$id', '2019-12-01', '".$_SESSION['startID']."', '".$_SESSION['destID']."', '$places', '$places', '$time')";
     $resultRide = $conn->query($sqlRide);
     if(!$resultRide)
     {
         $_SESSION['rideError'] = "Błąd przy dodawaniu przejazdu";
-        header('Location: ../index.php?page=rideAdd');
+        header('Location: ../index.php?page=rideAddConfirm');
         exit();
     }
     else
@@ -103,28 +176,28 @@ if(isset($_POST["rideConfirm"]))
 function unsetRideAddVariables()
 {
     // kasowanie zmiennych sesyjnych związanych z dodaniem przejazdu
-    /*if(isset($_SESSION['addStart']))
+    if(isset($_SESSION['addStart']))
         unset($_SESSION['addStart']);
     if(isset($_SESSION['addDest']))
         unset($_SESSION['addDest']);
     if(isset($_SESSION['addTime']))
         unset($_SESSION['addTime']);
     if(isset($_SESSION['addPlaces']))
-        unset($_SESSION['addPlaces']);*/
+        unset($_SESSION['addPlaces']);
     if(isset($_SESSION['startID']))
         unset($_SESSION['startID']);
     if(isset($_SESSION['destID']))
         unset($_SESSION['destID']);
     if(isset($_SESSION['rideError']))
         unset($_SESSION['rideError']);
-    /*if(isset($_SESSION['streetStart']))
+    if(isset($_SESSION['streetStart']))
         unset($_SESSION['streetStart']);
     if(isset($_SESSION['streetDest']))
         unset($_SESSION['streetDest']);
     if(isset($_SESSION['startLocal']))
         unset($_SESSION['startLocal']);
     if(isset($_SESSION['destLocal']))
-        unset($_SESSION['destLocal']);*/
+        unset($_SESSION['destLocal']);
 }   
 
 

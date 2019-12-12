@@ -1,7 +1,6 @@
 
 <!-- formularz logowania-->
 <?php
-session_start();
 include '../php/check_user_logged.php';
 include '../php/reset_ride_search.php';
 ?>
@@ -65,7 +64,14 @@ include '../php/reset_ride_search.php';
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="?page=rideMenu" class="text-body">Szukaj przejazdu</a>
+                        <a href="?page=rideMenu" class="text-body">Szukaj przejazd</a>
+                    </strong>
+                </div>
+            </div>
+            <div class="col-12 my-5">
+                <div class="display-4">
+                    <strong>
+                        <a href="?page=currentRides" class="text-body">Moje przejazdy</a>
                     </strong>
                 </div>
             </div>
@@ -80,18 +86,19 @@ include '../php/reset_ride_search.php';
 <script>
     $(document).ready(function () {
         $('#side-menu-noclick').click(function(){
-            document.getElementById('btn-side-menu').style.display = "block";
             $.when($('#sideMenu, #side-menu-noclick').fadeOut("slow")).done(function() {
-            $('#sideMenu *').detach()
+            $('#sideMenu').detach()
             $('#side-menu-noclick').detach()
+            $('#btn-side-menu').fadeIn("fast");
             });
+            
         });
 
         $('#btn-side-menuClose').click(function(){
-            document.getElementById('btn-side-menu').style.display = "block";
             $.when($('#sideMenu, #side-menu-noclick').fadeOut("slow")).done(function() {
-            $('#sideMenu *').detach()
+            $('#sideMenu').detach()
             $('#side-menu-noclick').detach()
+            $('#btn-side-menu').fadeIn("fast");
             });
         });
     });

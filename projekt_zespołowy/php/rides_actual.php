@@ -1,7 +1,14 @@
 <?php
-include 'db_connection.php';
-include 'ride_details.php';
 
+function showAllRides()
+{
+    include 'db_connection.php';
+    session_start();
+    include 'ride_details.php';
+    
+    if(isset($_SESSION['ridesProfile']))
+        unset($_SESSION['ridesProfile']);
+    
     // pobranie informacji z bazy danych
     $sql = "SELECT * FROM RideInfo WHERE `PlacesLeft` != '0' ORDER BY `Date`, `LeavingTime` ASC";
             
@@ -11,6 +18,10 @@ include 'ride_details.php';
         # dla wszystkich przejazdów w bazie narazie
         echo '<ul class="list-group w-100">';
         
+        //ustawienie zmiennej sesyjnej do przekazania do rideDetails
+        $_SESSION['userRideInfo'] = $rides;
+        
+        $tripNum = 0;
         while($row = $rides->fetch_assoc())
         {
             # zapytania do bazy o adresy przejazdu
@@ -24,15 +35,10 @@ include 'ride_details.php';
             if ($address->num_rows > 0 and $addressEnd->num_rows > 0) {
                 $street = $address->fetch_assoc();
                 $streetEnd = $addressEnd->fetch_assoc();
-                   
-                   
-                # wyświetlenie
-                #echo $street['Street'].' -> '.$streetEnd['Street'].'<br>Places left : '.$row['PlacesLeft'].'<br>';
-                #echo $row['LeavingTime'].' '.$row['Date'].'<br><br>';
                 
                 echo '
             <li class="my-4 list-group-item shadow">
-                <a href="?page=rideDetails" class="text-body">
+                <a href="?page=rideDetails&rideID='.$row['ID'].'" class="text-body">
                     <div class="h3 p-4">
                         <div id="" class="d-inline-block">
                             '.$street['Street'].'
@@ -60,7 +66,7 @@ include 'ride_details.php';
                 </a>
             </li>
             ';
-                
+            $tripNum += 1;
                 
             }
             else
@@ -71,7 +77,6 @@ include 'ride_details.php';
     } else {
         echo "Brak przejazdów";
     }
-
-
-
+    
+}
 ?>

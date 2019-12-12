@@ -4,8 +4,6 @@
 include 'php/check_user_logged.php';
 ?>
 
-    <div id="sideMenu" style="width:70%; position: absolute; left:30%; background-color: #f8f9fa; height: 100%; display: none; z-index: 10000">
-    </div>
     <div class="container-fluid" style="min-width: 250px;">
         <div class="w-100 py-5 pl-5 bg-light">
             <div class="display-3 font-weight-bold">
@@ -49,7 +47,7 @@ include 'php/check_user_logged.php';
             </a>
             <a href="?page=currentRides" class="text-white" >
                 <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-                    <div class="h3">TWOJE PRZEJAZDY(NA RAZIE TU BUTTON)</div>
+                    <div class="h3">MOJE PRZEJAZDY</div>
                 </button>
             </a>
         </div>

@@ -40,3 +40,4 @@ if(isset($_SESSION['isLogged']))
 }
 else
     echo "Nie zalogowany";
+?>
