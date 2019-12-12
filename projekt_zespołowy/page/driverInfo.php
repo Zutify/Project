@@ -81,7 +81,7 @@ include 'php/user_data.php';
 
 
         <div class="w-50 mx-auto" style="margin-top: 0px;">
-            <input type="submit" value="Potwierdź" name="submit" class="btn btn-success btn-block mb-5" style="height: 80px; border-radius: 40px; font-size: 40px;">
+            <input type="submit" value="Potwierdź" name="submit_car" class="btn btn-success btn-block mb-5" style="height: 80px; border-radius: 40px; font-size: 40px;">
         </div>
     </form>
 

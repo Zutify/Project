@@ -3,7 +3,7 @@ include 'db_connection.php';
 session_start();
 include 'user_data.php';
 
-if(isset($_POST["submit"]))
+if(isset($_POST["submit_car"]))
 {
     
     if(!empty($_POST['carBrand']) and !empty($_POST['carModel']) and !empty($_POST['driverDescription']))
@@ -15,7 +15,7 @@ if(isset($_POST["submit"]))
         //$userID = intval($id);
         // sprawdzenie czy rekord dla danego użytkownika już istnieje
         $sql = "Select * from UserCar where UserID = $id";
-        if($result_car = $conn->query($sql))
+        if($result_car->num_rows > 0)
         {
             // jeśli istnieje to update
             $sql2 = "Update UserCar SET `Brand` = '$car_brand', `Model` = '$car_model', `Description` = '$driver_desc' where UserID = $id";
