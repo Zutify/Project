@@ -12,10 +12,11 @@ if(isset($_POST["submitRate"]))
         $sql = "INSERT into Rating VALUES (NULL, '1', $id, '$rate')";
             
             $result_rate = $conn->query($sql);
-            if(!$result_rate)
+            $result = $result_rate->fetch_assoc();
+            if(!$result->num_rows == 0)
             {
                 $_SESSION['RateError'] = "Błąd przy dodawaniu oceny przejazdu";
-                header('Location: ../index.php?page=menu');
+                header('Location: ../index.php?page=route_rating');
                 exit();
             }
             else

@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 var input = document.getElementById('start');
 var inputdest = document.getElementById('dest');
   
@@ -51,4 +53,5 @@ autocompletedest.addListener('place_changed', function() {
         ].join(' ');
     }
     
+});
 });

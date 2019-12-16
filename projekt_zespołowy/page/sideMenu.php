@@ -64,7 +64,7 @@ include '../php/reset_ride_search.php';
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="?page=rideMenu" class="text-body">Szukaj przejazd</a>
+                        <a href="?page=rideMenu" class="text-body">Wyszukaj przejazd</a>
                     </strong>
                 </div>
             </div>

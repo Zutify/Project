@@ -30,6 +30,7 @@ require_once('ride_details.php');
 function printRides($val){
     include 'db_connection.php';
     session_start();
+    include 'user_data.php';
     
     // true - wyświetla przejazdy w których jesteś kierowcą, false - pasażerem
     if($val){
@@ -65,11 +66,20 @@ function printRides($val){
                 #echo $street['Street'].' -> '.$streetEnd['Street'].'<br>Places left : '.$row['PlacesLeft'].'<br>';
                 #echo $row['LeavingTime'].' '.$row['Date'].'<br><br>';
                 
+            // sprawdzenie statusu przejazdu
+            // 0 - dodany do bazy
+            // 1 - trwający
+            // 2 - zakończony
+            // 3 - odwołany
+            if($row['Status'] == 0)
+                echo '<li class="my-4 list-group-item shadow"';
+            else if($row['Status'] == 1)
+                echo '<li class="my-4 list-group-item shadow border border-success"';
+            else if($row['Status'] == 2)//($row['Date'] < date("Y-m-d")){
+                    echo '<li class="my-4 list-group-item shadow" style="filter: drop-shadow(2px 2px 2px gray) invert(25%)"';
+            else if($row['Status'] == 3)
+                echo '<li class="my-4 list-group-item shadow border border-danger"';
             
-            echo '<li class="my-4 list-group-item shadow"';
-            if($row['Date'] < date("Y-m-d")){
-                echo ' style="filter: drop-shadow(8px 8px 8px gray) invert(25%);">';
-            }else
             echo '>';
             echo '    <a href="?page=rideDetails&rideID='.$row['ID'].'" class="text-body">
                     <div class="h3 p-4">
@@ -79,7 +89,24 @@ function printRides($val){
                         <i class="fa fa-arrow-right d-inline-block" aria-hidden="true"></i>
                         <div id="" class="d-inline-block">
                             '.$streetEnd['Street'].'
-                        </div>
+                        </div>';
+                        
+                        // do zakończenia przejazdu
+                        if($row['Status'] == 1 and $row['Driver'] == $id)
+                        {
+                            // zapisanie ID przejazdu w sesji
+                            $_SESSION['rideEndID'] = $row['ID'];
+                            echo 
+                            '<div class="h4" style="float:right";>ZAKOŃCZ PRZEJAZD</div><div style="clear:both";></div>';
+                        }
+                        // do anulowania przejazdu
+                        else if($row['Status'] == 0 and $row['Driver'] == $id)
+                        {
+                            echo 
+                            '<div class="h4" style="float:right";>ANULUJ PRZEJAZD</div><div style="clear:both";></div>';
+                        }
+                        
+                        echo '
                         <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
                         <div class="d-flex justify-content-between mt-3">
                             <div id="" class="text-primary d-inline-block">';

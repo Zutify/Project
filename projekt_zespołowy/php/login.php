@@ -45,6 +45,10 @@ if (isset($_POST["submit"])) {
 
                 }
             }
+            else{
+               $r->error = true;
+                $r->email['msg'] = "Nie ma takiego użytkownika"; 
+            }
         }else{
             $r->error = true;
             $r->email['msg'] = "Nie ma takiego użytkownika";

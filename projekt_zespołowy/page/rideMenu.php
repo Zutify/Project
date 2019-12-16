@@ -1,10 +1,11 @@
 <!-- formularz logowania-->
 <?php
+include 'php/db_connection.php';
+session_start();
 include 'php/check_user_logged.php';
 include 'php/reset_ride_search.php';
 ?>
-<script src="js/addRide.js"></script>
-<script src="js/changeInputsValue.js"></script>
+
 <style>
 .pac-item{
     height: 40px;
@@ -39,26 +40,54 @@ include 'php/reset_ride_search.php';
         <div class="w-75 mx-auto">
             <form action="php/ride_info_handle.php" method="POST">
                 <div class=" my-5 shadow p-3 bg-light rounded">
-                    <button type="button" class="btn btn-lg btn-block">
+                    <button id="startbtn" type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
                             <div class="col-12">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
                             </div>
                         </div>
                     </button>
                 </div>
+                <div class="mt-n5" id="startError" style="position: fixed; display: none;">
+                    <label class="h4 text-danger" id="startErrorMsg">Pole nie może być puste</label>
+                </div>
+                
                 <div class=" my-5 shadow p-3 bg-light rounded">
-                    <button type="button" class="btn btn-lg btn-block">
+                    <button type="button" id="destbtn" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
                             <div class="col-12">
                                 <i class="fa fa-compass" style="font-size: 36px;"></i>
-                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
+                                <?php
+                                if(isset($_GET['address']))
+                                {
+                                    $destID = $_GET['address'];
+                                    $address = "SELECT `Street` FROM Address WHERE `ID` = $destID";
+                        
+                                    // jeśli istnieją to wyświetlić adresy
+                                    $street = $conn->query($address);
+                                    if ($street->num_rows > 0) {
+                                        $result = $street->fetch_assoc();
+                                        echo'
+                                        <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">';
+                                    }
+                                    else
+                                        echo "błąd";
+                                }
+                                else
+                                {
+                                echo'
+                                    <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;outline: none;">';
+                                    
+                                }
+                                ?>
                             </div>
                         </div>
                     </button>
                 </div>
-                
+                <div class="mt-n5" id="destError" style="position: fixed; display: none;">
+                    <label class="h4 text-danger" id="destErrorMsg">Pole nie może być puste</label>
+                </div>
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
                 <div style="top: 430px; right: 250px; position: absolute;">
                     <button type="button" onclick="changeInputsValue()" class="btn btn-lg btn-block">
@@ -68,23 +97,18 @@ include 'php/reset_ride_search.php';
                     </button>
                 </div>
                 
-                <div class="my-5">
-                    <div class="h4">
-                        <a href=""class="text-dark">
-                            Pokaż kierowców w pobliżu
-                        </a>
-                    </div>
-                </div>
-                
                 <div class="my-5 d-flex justify-content-between">
                     <div class="row">
-                        <div class="col-8 h2">Data i godzina</div>
-                        <div class="col-8 h3 text-primary">
-                            Dzisiaj : 9:27
+                        <div class="col-12 h2 mt-3 mr-n3">Data i godzina</div>
+                        <input class="col-5 h3 text-primary border-0 mt-3 mr-n5" type="date" id="datePicker" name="tripStartDate" min="2019-01-01" max="2020-12-31">
+                        <input class="col-3 h3 text-primary border-0 mt-3 mr-n5"type="time" id="timePicker" name="tripStartTime">
+                        <div class="col-8" id="dateError" style="visibility: hidden;">
+                            <label id="dateErrorMsg" class="h4 text-danger">Pola nie mogą być puste</label>
                         </div>
                     </div>
-                    <div>
-                        <input type="submit" value="SZUKAJ" name="submit" class="btn text-white btn-lg bg-primary" style="width: 200px; font-size: 28px; border-radius: 30px;">
+                    <div class="mt-5" id="btn-dalej">
+                        <input id="dalejDummy" value="SZUKAJ" class="btn text-white btn-lg bg-primary" style="width: 200px; font-size: 28px; border-radius: 30px;">
+                        <input id="dalejSubmit" type="submit" value="SZUKAJ" name="submit" class="btn text-white btn-lg bg-primary" style="width: 200px; font-size: 28px; border-radius: 30px; display: none;">
                     </div>
                 </div>
             </form>
@@ -116,26 +140,18 @@ include 'php/reset_ride_search.php';
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td class="">
-                        <div class="h3 my-4 ml-1">
-                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="" class="ml-3 text-dark">Dodaj przejazd</a>
-                        </div>
-                    </td>
-                </tr>
             </table>
         </div>
-        
-        
-        <div id="map"></div>
-        
     </div>
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
-        async defer></script>
         
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
+<script src="js/rideMenuForm.js"></script>
+<script src="js/focusInputButtons.js"></script>
 <script src="js/changeInputsanimation.js"></script>
+<script src="js/autoComplete.js"></script>
+<script src="js/changeInputsValue.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
+        async defer></script>

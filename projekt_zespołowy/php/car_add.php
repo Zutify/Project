@@ -15,8 +15,10 @@ if(isset($_POST["submit_car"]))
         //$userID = intval($id);
         // sprawdzenie czy rekord dla danego użytkownika już istnieje
         $sql = "Select * from UserCar where UserID = $id";
+        $result_car = $conn->query($sql);
         if($result_car->num_rows > 0)
         {
+            
             // jeśli istnieje to update
             $sql2 = "Update UserCar SET `Brand` = '$car_brand', `Model` = '$car_model', `Description` = '$driver_desc' where UserID = $id";
             
@@ -34,6 +36,7 @@ if(isset($_POST["submit_car"]))
                 {
                     unset($_SESSION['carError']);
                 }
+                
                 header('Location: ../index.php?page=menu');
                 exit();
     
@@ -53,6 +56,7 @@ if(isset($_POST["submit_car"]))
             }
             else
             {
+                echo $id;
                 // kasowanie zmiennych sesyjnych związanych z dodaniem przejazdu
                 if(isset($_SESSION['carError']))
                 {

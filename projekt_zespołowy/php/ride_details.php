@@ -74,11 +74,17 @@ function showRides()
                     <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
                     <div class="d-flex justify-content-between mt-3">
                         <div id="" class="text-primary d-inline-block">
-                            Dzisiaj : ';
-                            if($row['LeavingTime'][0] == "0")
+                            ';
+                            echo $row['Date'] . '   ';
+                            $_SESSION['date'] = $row['Date'];
+                            if($row['LeavingTime'][0] == "0"){
                                 echo substr($row['LeavingTime'], 1, 4);
-                            else
+                                $_SESSION['leavingtime'] = substr($row['LeavingTime'], 1, 4);
+                            }
+                            else{
                                 echo substr($row['LeavingTime'], 0, 5);
+                                $_SESSION['leavingtime'] = substr($row['LeavingTime'], 0, 5);
+                            }
                         echo'
                         </div>
                     <!-- ilość ikonek w zależności od ilości miejsc -->

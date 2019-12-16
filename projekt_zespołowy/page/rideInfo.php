@@ -1,5 +1,6 @@
 <!-- formularz logowania-->
 <?php
+session_start();
 include 'php/check_user_logged.php';
 include 'php/ride_details.php';
 ?>
@@ -48,7 +49,10 @@ include 'php/ride_details.php';
                 </div>
             </div>
             <div id="" class="h3 text-primary ">
-                Dzisiaj : 9:45
+                <?php
+                echo $_SESSION['date'].'   ';
+                echo $_SESSION['leavingtime'];
+                ?>
             </div>
         </div>
         <div class=" mx-5 mt-4 border-bottom border-dark"></div>

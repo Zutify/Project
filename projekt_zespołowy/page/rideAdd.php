@@ -39,30 +39,30 @@ unsetRideAddVariables();
         <div id="searchDiv" class="w-75 mx-auto">
             <form action="php/ride_add.php" method="POST">
                 <div class=" my-5 shadow p-3 bg-light rounded">
-                    <button type="button" class="btn btn-lg btn-block">
+                    <button id="startbtn" type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
                             <div class="col-12">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black;">
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
                             </div>
                         </div>
                     </button>
                 </div>
                 <div class="mt-n5" id="startError" style="position: fixed; display: none;">
-                    <label class="h4 text-danger">Pole nie może być puste</label>
+                    <label class="h4 text-danger" id="startErrorMsg">Pole nie może być puste</label>
                 </div>
                 <div class=" my-5 shadow p-3 bg-light rounded">
-                    <button type="button" class="btn btn-lg btn-block">
+                    <button id="destbtn" type="button" class="btn btn-lg btn-block">
                         <div class="h3 text-left">
                             <div class="col-12">
                                 <i class="fa fa-compass" style="font-size: 36px;"></i>
-                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;">
+                                <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
                             </div>
                         </div>
                     </button>
                 </div>
                 <div class="mt-n5" id="destError" style="position: fixed; display: none;">
-                    <label class="h4 text-danger">Pole nie może być puste</label>
+                    <label class="h4 text-danger" id="destErrorMsg">Pole nie może być puste</label>
                 </div>
                 
                 <!-- przycisk do zmiany kolejności miejsc wyjazdu i docelowego-->
@@ -83,8 +83,8 @@ unsetRideAddVariables();
                         </div>
                         
                         <div class="col-6 h2 mt-3 mr-n3">Data i godzina</div>
-                        <input class="d-inline-block col-3 h3 text-primary border-0 mt-3 mr-n5"type="time" id="timePicker" name="tripStartTime">
                         <input class="d-inline-block col-5 h3 text-primary border-0 mt-3 mr-n5" type="date" id="datePicker" name="tripStartDate" min="2019-01-01" max="2020-12-31">
+                        <input class="d-inline-block col-3 h3 text-primary border-0 mt-3 mr-n5"type="time" id="timePicker" name="tripStartTime">
                         <div class="col-8" id="dateError" style="visibility: hidden;">
                             <label id="dateErrorMsg" class="h4 text-danger">Pola nie mogą być puste</label>
                         </div>
@@ -98,7 +98,16 @@ unsetRideAddVariables();
             
             <div class="border-bottom border-dark"></div>
             
-            
+            <div class="text-danger h3 mt-3">
+                <?php
+                session_start();
+                if(isset($_SESSION['addError']))
+                    {
+                        echo $_SESSION['addError'];
+                        unset($_SESSION['addError']);
+                    }
+                ?>
+            </div>
             
         </div>
         <div id="recordDiv" class="w-75 mx-auto" style="display: none;">
@@ -136,11 +145,13 @@ unsetRideAddVariables();
         </button>
     </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
-        async defer></script>
+
         
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
 <script src="js/changeInputsanimation.js"></script>
 <script src="js/changeInputsValue.js"></script>
 <script src="js/addRideForm.js"></script>
+<script src="js/focusInputButtons.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
+        async defer></script>

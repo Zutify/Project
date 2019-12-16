@@ -34,9 +34,11 @@ include 'user_data.php';
                     if ($street->num_rows > 0) {
                         $row3 = $street->fetch_assoc();
                         #echo "Udało sie";
-                        echo '<li class="my-4 list-group-item shadow"><div class="h2">';
+                        echo '
+                            <a href="?page=rideMenu&address='.$destID.'" class="text-body text-decoration-none">
+                            <li class="my-4 list-group-item shadow"><div class="h2">';
                             echo $row3['Street'];
-                        echo '</div></li>';
+                        echo '</div></li></a>';
                     }
                 }
                 echo '<ul>';

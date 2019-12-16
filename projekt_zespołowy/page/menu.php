@@ -42,7 +42,7 @@ include 'php/check_user_logged.php';
             </a>
             <a href="?page=rideMenu" class="text-white" >
                 <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-                    <div class="h3">SZUKAJ PRZEJAZDU</div>
+                    <div class="h3">WYSZUKAJ PRZEJAZD</div>
                 </button>
             </a>
             <a href="?page=currentRides" class="text-white" >

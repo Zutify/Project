@@ -14,6 +14,36 @@ if(isset($_POST["rideConfirm"]))
     $date = $_POST['tripStartDate'];
     $places = $_POST['places'];
  
+    // widełki 15 minutowe od czasu wpisanego do przejazdu
+    // sprawdzenie czasu przejazdów wpisanych i tych z bazy
+    // subtract Time
+    $T = strtotime($time);
+    $T = $T - (15*60);
+    $timeBefore = date("H:i:s.u", $T);
+    // add Time
+    $T = strtotime($time);
+    $T = $T + (15*60);
+    $timeAfter = date("H:i:s.u", $T);
+    
+    // sprawdzenie czy użytkownik nie ma już dodanego przejazdu o tej porze żeby nie kolidowało
+    $rideSql = "SELECT * from RideInfo where `Driver` = $id AND `Date` = '$date'";
+    
+    $rideRes = $conn->query($rideSql);
+    if($rideRes->num_rows > 0)
+    {
+        // sprawdzenie dla wszystkich przejazdów
+        while($res = $rideRes->fetch_assoc())
+        {
+            // sprawdzenie czy istnieje przejazd w widełkach 15 minutowych
+            if(($timeBefore < $res['LeavingTime']) and ($res['LeavingTime'] < $timeAfter))
+            {
+                $_SESSION['addError'] = "Nie można dodać przejazdu - nakłada sie na istniejący przejazd";
+                header('Location: ../index.php?page=rideAdd');
+                exit();
+            }
+        }
+        
+    }
     // dodanie przejazdu do bazy danych
     
     // dodanie adresów do bazy danych
@@ -83,7 +113,7 @@ if(isset($_POST["rideConfirm"]))
     
     // dodanie przejazdu do bazy RideInfo
     // $id - id zalogowanego użytkownika, z user_data.php
-    $sqlRide = "INSERT into RideInfo VALUES (NULL, '$id', '$date', '".$_SESSION['startID']."', '".$_SESSION['destID']."', '$places', '$places', '$time')";
+    $sqlRide = "INSERT into RideInfo VALUES (NULL, '$id', '$date', '".$_SESSION['startID']."', '".$_SESSION['destID']."', '$places', '$places', '$time', 0)";
     $resultRide = $conn->query($sqlRide);
     if(!$resultRide)
     {

@@ -52,7 +52,7 @@ checkRideInfo();
     <div class="container-fluid mt-5">
         <div class="mx-5">
             <div class="h3 p-4">
-                <div id="" class="d-inline-block">
+                <div id class="d-inline-block">
                     <?php
                         if(isset($_SESSION['start']))
                         {
@@ -65,7 +65,7 @@ checkRideInfo();
                     ?>
                 </div>
                 <i class="fa fa-arrow-right d-inline-block" aria-hidden="true"></i>
-                <div id="" class="d-inline-block">
+                <div id class="d-inline-block">
                     <?php
                         if(isset($_SESSION['dest']))
                         {
@@ -80,11 +80,11 @@ checkRideInfo();
                 <!-- dolna cześć elementu listy z godziną i ilością miejsc-->
                 <div class="d-flex justify-content-between mt-3">
                     <div id="" class="text-primary d-inline-block">
-                        Dzisiaj : 
                         <?php
                         if(isset($_SESSION['rideInfo']))
                         {
                             $row = $_SESSION['rideInfo'];
+                            echo $row['Date'].'   ';
                             if($row['LeavingTime'][0] == "0")
                                 echo substr($row['LeavingTime'], 1, 4);
                             else
@@ -110,13 +110,13 @@ checkRideInfo();
             if(isset($_SESSION['rideInfo']))
             {
                 $row = $_SESSION['rideInfo'];
-                driverInfo($row['Driver']);
+                driverInfo($row['Driver'], $row['Status'], $row['ID']);
             }
             ?>
             <div class="border-bottom border-dark"></div>
             <div class="d-flex justify-content-end mt-2">
                 <div class="h3">
-                    <a href="" class="text-body">
+                    <a id="show" class="text-body">
                         Pokaż trasę na mapie
                     </a>
                 </div>
@@ -124,3 +124,21 @@ checkRideInfo();
         </div>
     </div>
 </div>
+<input id="start" style="display: none" value="<?php echo $_SESSION['start']; ?>">
+            <input id="dest" style="display: none" value="<?php echo $_SESSION['dest']; ?>">
+            <div id="mapdiv" style="position: absolute; top: 56%; height: 44%; width: 100%; visibility: hidden;">
+                <div id="map" class="container-fluid h-100"></div>
+                
+            </div>
+
+<script src="js/jquery.js"></script>
+<script src="js/showRide.js"></script>
+<!--<script>
+    $('#show').on('click', function(){
+        google.maps.event.trigger(autocomplete, 'place_changed');
+        document.getElementById('mapdiv').style.visibility = "visible";
+        document.getElementById('show').style.display = "none";
+    })
+</script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
+        async defer></script>

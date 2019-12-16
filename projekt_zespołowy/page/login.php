@@ -56,13 +56,6 @@
                             </a>
                         </div>
                     </li>
-                    <li class="list-group-item" style="border: none;">
-                        <div class="h5">
-                            <a href="../index.php?page=passwordReset" class="text-dark">
-                                Zresetuj hasło
-                            </a>
-                        </div>
-                    </li>
                 </ul>
             </div>
                 

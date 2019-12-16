@@ -2,7 +2,9 @@
 
 // pobiera dane o konkretnym kierowcy
 // driver id z zapytania o podróż z tabeli RideInfo
-function driverInfo($driverID)
+// status z tabeli RideInfo
+// rideID przejazdu
+function driverInfo($driverID, $status, $rideID)
 {
     include 'db_connection.php';
     session_start();
@@ -39,7 +41,7 @@ function driverInfo($driverID)
         echo $Name." ".$Surname;
         echo '</div>
         <div class=" my-3 border-bottom border-dark"></div>
-        <div class="h4 mx-5 h-50" style="min-height: 50vh";>
+        <div class="h4 mx-5 h-auto" style="min-height: 30vh";>
             <div class="my-3 h3">
                 Auto <div class="d-inline-block ml-2" id="car">';
                 echo $carBrand." ".$carModel;
@@ -79,13 +81,41 @@ function driverInfo($driverID)
             }
             else
             {
-                echo'
-                <!-- przycisk dołączania do przejazdu -->
-                <a href="../php/ride_join.php" class="text-white" >
-                    <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
-                        <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
-                    </button>
-                </a>';
+                if($status == 0 and $user['ID'] != $driverID)
+                    echo'
+                    <!-- przycisk dołączania do przejazdu -->
+                    <a href="../php/ride_join.php" class="text-white" >
+                        <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                            <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
+                        </button>
+                    </a>';
+                else if($status == 0 and $user['ID'] == $driverID)
+                {
+                    // zapisanie ID przejazdu w sesji
+                    $_SESSION['rideEndID'] = $rideID;
+                    $_SESSION['rideCancel'] = $rideID;
+                    
+                    echo'
+                    <!-- przycisk dołączania do przejazdu -->
+                    <a href="../php/ride_end.php" class="text-white" >
+                        <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                            <div class="h3">ANULUJ PRZEJAZD</div>
+                        </button>
+                    </a>';
+                }
+                else
+                {
+                    // zapisanie ID przejazdu w sesji
+                    $_SESSION['rideEndID'] = $rideID;
+                    
+                    echo'
+                    <!-- przycisk do zakończenia przejazdu -->
+                    <a href="../php/ride_end.php" class="text-white" >
+                        <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                            <div class="h3">ZAKOŃCZ PRZEJAZD</div>
+                        </button>
+                    </a>';
+                }
             }
         echo '</div>';        
     }
@@ -134,13 +164,40 @@ function driverInfo($driverID)
             }
             else
             {
-                echo'
-                <!-- przycisk dołączania do przejazdu -->
-                <a href="../php/ride_join.php" class="text-white" >
-                    <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
-                        <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
-                    </button>
-                </a>';
+                if($status == 0 and $user['ID'] != $driverID)
+                    echo'
+                    <!-- przycisk dołączania do przejazdu -->
+                    <a href="../php/ride_join.php" class="text-white" >
+                        <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                            <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
+                        </button>
+                    </a>';
+                else if($status == 0 and $user['ID'] == $driverID)
+                {
+                    // zapisanie ID przejazdu w sesji
+                    $_SESSION['rideEndID'] = $rideID;
+                    $_SESSION['rideCancel'] = $rideID;
+                    
+                    echo'
+                    <!-- przycisk dołączania do przejazdu -->
+                    <a href="../php/ride_end.php" class="text-white" >
+                        <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                            <div class="h3">ANULUJ PRZEJAZD</div>
+                        </button>
+                    </a>';    
+                }
+                else
+                {
+                    // zapisanie ID przejazdu w sesji
+                    $_SESSION['rideEndID'] = $rideID;
+                    echo'
+                    <!-- przycisk do zakończenia przejazdu -->
+                    <a href="../php/ride_end.php" class="text-white" >
+                        <button type="button" class="btn btn-success btn-block" style="height: 120px; margin-top: 80px;">
+                            <div class="h3">ZAKOŃCZ PRZEJAZD</div>
+                        </button>
+                    </a>';
+                }
             }
         echo '</div>'; 
     }

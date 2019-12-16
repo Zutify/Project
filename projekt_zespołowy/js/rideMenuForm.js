@@ -9,7 +9,7 @@ $(document).ready( function() {
     $('#timePicker').val(date.toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw' , timeStyle: 'short'}));
     //$('#datePicker').val(date.toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw' , dateStyle: 'short'}));
     // walidacja wypełnienia pól
-    $('#checkdeststart').on('click', function(){
+    $('#dalejDummy').on('click', function(){
         var requeststart = {
             origin: {query:document.getElementById('start').value},
             destination: {query:test},
@@ -69,37 +69,9 @@ $(document).ready( function() {
         else{
             document.getElementById("dateError").style.visibility = "hidden";
         }
-        if (!$('#seatsNumber').val()){
-            document.getElementById("seatsError").style.visibility = "visible";
-        }
-        else{
-            document.getElementById("seatsError").style.visibility = "hidden";
-        }
         // po poprawnej walidacji
-        if($('#dest').val() && $('#start').val() && $('#seatsNumber').val() && $('#datePicker').val() && $('#timePicker').val() && startval && destval){
-            document.getElementById("mapdiv").style.visibility = "visible";
-            document.getElementById("searchDiv").style.display = "none";
-            document.getElementById("recordDiv").style.display = "block";
-            document.getElementById("rideSubmitDummy").style.display = "block";
-            $('#startRecord').html($("#start").val());
-            $('#destRecord').html($("#dest").val());
-            $('#timeRecord').html($("#timePicker").val());
-            $('#dateRecord').html($("#datePicker").val());
-            for(var i = 0; i < $("#seatsNumber").val(); i++){
-                $('#seatsNumberRecord').append("<i class='fa fa-male d-inline-block mx-1' aria-hidden='true' style='font-size: 52px; color:green;'></i>")
-            }
+        if($('#dest').val() && $('#start').val() && $('#datePicker').val() && $('#timePicker').val() && startval && destval){
+            $('#dalejSubmit').click();
         }
-    });
-    $('#recordDiv').on('click', function(){
-        document.getElementById("mapdiv").style.visibility = "hidden";
-        document.getElementById("searchDiv").style.display = "block";
-        document.getElementById("recordDiv").style.display = "none";
-        document.getElementById("rideSubmitDummy").style.display = "none";
-        for(var i = 0; i < $("#seatsNumber").val(); i++){
-                $('#seatsNumberRecord *').detach();
-        }
-    });
-    $('#rideSubmitDummy').on('click', function(){
-        document.getElementById("rideSubmit").click();
     });
 });
