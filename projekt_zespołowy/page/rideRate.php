@@ -59,6 +59,12 @@
                 <input type="radio" name="star" id="1star" value="1" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;">
             </div>
 
+            <h1 class="rate">Komentarz</h1>
+
+            <div class="col-6">
+                <textarea name="driverDescription" rows="6" cols="33" style="border: none;"></textarea>
+            </div>
+
 
 
             <div>
