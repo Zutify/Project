@@ -36,7 +36,7 @@ include 'php/user_data.php';
                             </div>
                             <div class="col-8">
                                 <?php
-                                echo '<input name="profileEmail" value="'.$Email.'" class="display-inline-block" style="background: transparent; border:none; font-color: black;">'
+                                echo '<input name="profileEmail" id="profileEmail" value="'.$Email.'" class="display-inline-block" style="background: transparent; border:none; font-color: black;">'
                                 ?>
                             </div>
                             <!-- div gdzie będzie wyświetlany error jeśli się pojawi -->
@@ -55,7 +55,7 @@ include 'php/user_data.php';
                             </div>
                             <div class="col-8">
                                 <?php
-                                echo '<input name="profileName" value="'.$Name.'" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
+                                echo '<input name="profileName" id="profileName" value="'.$Name.'" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
                                 ?>
                             </div>
                             <!-- div gdzie będzie wyświetlany error jeśli się pojawi -->
@@ -76,7 +76,7 @@ include 'php/user_data.php';
                             </div>
                             <div class="col-8">
                                 <?php
-                                echo '<input name="phoneNumber" value="'.$PhoneNumber.'" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
+                                echo '<input name="phoneNumber" id="phoneNumber"  value="'.$PhoneNumber.'" class="display-inline-block w-100" style="background: transparent; border:none; font-color: black;">'
                                 ?>
                             </div>
                             <!-- div gdzie będzie wyświetlany error jeśli się pojawi -->
@@ -131,6 +131,7 @@ include 'php/user_data.php';
 
 <script src="js/jquery.js"></script>
 <script src="js/openSideMenu.js"></script>
+<script src="js/checkProfileForm.js"></script>
 <!--<script>
     $(document).ready(function () {
         $('#btn-driver').click(function(){
