@@ -7,6 +7,6 @@ else{
     //header('Location: page/mobile_only.php');
     include 'page/mobile_only.php';
     //echo "mobilne only!";
-    //exit();
+    exit();
 }
 ?>
