@@ -33,13 +33,19 @@ include 'php/check_user_logged.php';
                 <div class="display-1 text-white pt-5">Co dziś robimy?</div>    
             </div>
         </div>
-        
         <div class="w-75 mx-auto mt-5">
-            <a href="?page=rideAdd" class="text-white">
-                <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
-                    <div class="h3">DODAJ PRZEJAZD</div>
-                </button>
-            </a>
+        
+            <?php
+            include 'php/user_data.php';
+            if(isset($carBrand))
+                echo '
+                    <a href="?page=rideAdd" class="text-white">
+                        <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
+                            <div class="h3">DODAJ PRZEJAZD</div>
+                        </button>
+                    </a>';
+            ?>
+            
             <a href="?page=rideMenu" class="text-white" >
                 <button type="button" class="btn btn-success btn-block mb-5" style="height: 120px;">
                     <div class="h3">WYSZUKAJ PRZEJAZD</div>

@@ -8,6 +8,7 @@ function driverInfo($driverID, $status, $rideID)
 {
     include 'db_connection.php';
     session_start();
+    include 'user_data.php';
     
     $sql = "SELECT * FROM User WHERE `ID`='$driverID'";
     $result = $conn->query($sql);
@@ -17,6 +18,7 @@ function driverInfo($driverID, $status, $rideID)
         $Name = $user['Name'];
         $Surname = $user['Surname'];
         $PhoneNumber = $user['PhoneNumber'];
+        // setcookie("telefon", $PhoneNumber, 0, "/");
     }
     
     // pobieranie zmiennych o samochodzie Uzytkownika o ile posiada
@@ -81,7 +83,7 @@ function driverInfo($driverID, $status, $rideID)
             }
             else
             {
-                if($status == 0 and $user['ID'] != $driverID)
+                if($status == 0 and $id != $driverID)
                     echo'
                     <!-- przycisk dołączania do przejazdu -->
                     <a href="../php/ride_join.php" class="text-white" >
@@ -89,7 +91,7 @@ function driverInfo($driverID, $status, $rideID)
                             <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
                         </button>
                     </a>';
-                else if($status == 0 and $user['ID'] == $driverID)
+                else if($status == 0 and $id == $driverID)
                 {
                     // zapisanie ID przejazdu w sesji
                     $_SESSION['rideEndID'] = $rideID;
@@ -164,7 +166,7 @@ function driverInfo($driverID, $status, $rideID)
             }
             else
             {
-                if($status == 0 and $user['ID'] != $driverID)
+                if($status == 0 and $id != $driverID)
                     echo'
                     <!-- przycisk dołączania do przejazdu -->
                     <a href="../php/ride_join.php" class="text-white" >
@@ -172,7 +174,7 @@ function driverInfo($driverID, $status, $rideID)
                             <div class="h3">DOŁĄCZ DO PRZEJAZDU</div>
                         </button>
                     </a>';
-                else if($status == 0 and $user['ID'] == $driverID)
+                else if($status == 0 and $id == $driverID)
                 {
                     // zapisanie ID przejazdu w sesji
                     $_SESSION['rideEndID'] = $rideID;

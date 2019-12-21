@@ -54,13 +54,20 @@ include '../php/reset_ride_search.php';
                     </strong>
                 </div>
             </div>
-            <div class="col-12 my-5">
-                <div class="display-4">
-                    <strong>
-                        <a href="?page=rideAdd" class="text-body">Dodaj przejazd</a>
-                    </strong>
-                </div>
-            </div>
+            
+            <?php
+            include 'php/user_data.php';
+            if(isset($carBrand))
+                echo '
+                <div class="col-12 my-5">
+                    <div class="display-4">
+                        <strong>
+                            <a href="?page=rideAdd" class="text-body">Dodaj przejazd</a>
+                        </strong>
+                    </div>
+                </div>';
+            ?>
+            
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
