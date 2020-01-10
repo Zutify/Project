@@ -5,8 +5,7 @@ if(preg_match('/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|c
 header('https://zutify.000webhostapp.com/');
 else{
     //header('Location: page/mobile_only.php');
-    include 'page/mobile_only.php';
-    //echo "mobilne only!";
+    echo "mobilne only!";
     exit();
 }
 ?>

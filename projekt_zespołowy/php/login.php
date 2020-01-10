@@ -70,6 +70,11 @@ if (isset($_POST["submit"])) {
             $_SESSION['userID']=$user2['ID'];
             $_SESSION['username']=$user2['Name'];
             
+        // autologin
+         setcookie("email", $_POST['email'], time() + (86400 * 30), "/");
+         setcookie("password", $_POST['password'], time() + (86400 * 30), "/");
+        
+        
         header('Location: ../index.php?page=menu');
     }else {
         $_SESSION['login_response'] = $r;

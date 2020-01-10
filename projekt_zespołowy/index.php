@@ -6,6 +6,7 @@ include 'php/detectmobilebrowser.php';
 include 'php/db_connection.php';
 include 'php/form_view.php';
 include 'php/reset_session.php';
+include 'php/change_ride_status.php';
 ?>
 
 <HTML>
@@ -106,6 +107,7 @@ include 'php/reset_session.php';
         <?php 
         //zamknięcie else ( jeżeli nie ma $_GET('page') )
         endif;?>
+        <script defer src="js/refreshRidesStatus.js"></script>
 </body>
 
 </HTML>
