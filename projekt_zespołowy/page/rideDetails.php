@@ -121,6 +121,9 @@ checkRideInfo();
                     </a>
                 </div>
             </div>
+            <button type="button" id="navigateBtn" class="w-50 btn btn-success btn-block mb-5" style="height: 80px; position:absolute; top: 90%; left:25%; z-index: 10000; display: none">
+                <div class="h3">Nawiguj do punktu startowego</div>
+            </button>
         </div>
     </div>
 </div>
@@ -133,12 +136,5 @@ checkRideInfo();
 
 <script src="js/jquery.js"></script>
 <script src="js/showRide.js"></script>
-<!--<script>
-    $('#show').on('click', function(){
-        google.maps.event.trigger(autocomplete, 'place_changed');
-        document.getElementById('mapdiv').style.visibility = "visible";
-        document.getElementById('show').style.display = "none";
-    })
-</script>-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjEcMhdQW1b3g9R9JPn1ZNlzfm0WMm9EQ&libraries=places&callback=initMap"
         async defer></script>
