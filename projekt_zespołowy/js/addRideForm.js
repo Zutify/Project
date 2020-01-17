@@ -71,8 +71,13 @@ $(document).ready( function() {
         }
         if (!$('#seatsNumber').val()){
             document.getElementById("seatsError").style.visibility = "visible";
+            document.getElementById("seatsErrorMsg").innerHTML = "Pole czas nie może być puste";
         }
-        else{
+        else if($('#seatsNumber').val() <= 0 || $('#seatsNumber').val() >10) {
+            document.getElementById("seatsError").style.visibility = "visible";
+            document.getElementById("seatsErrorMsg").innerHTML = "Niepoprawna ilość miejsc";
+        } 
+        else {
             document.getElementById("seatsError").style.visibility = "hidden";
         }
         // po poprawnej walidacji

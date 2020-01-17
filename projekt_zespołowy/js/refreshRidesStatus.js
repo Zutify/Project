@@ -2,4 +2,4 @@ function checkRideStatus() {
   location.reload();
 }
 
-setInterval(checkRideStatus, 60*1000);
+setInterval(checkRideStatus, 240*1000);

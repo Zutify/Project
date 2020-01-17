@@ -39,5 +39,5 @@ if(isset($_SESSION['isLogged']))
         echo "Nie ustawione ID";
 }
 else
-    echo "Nie zalogowany";
+    //echo "Nie zalogowany";
 ?>

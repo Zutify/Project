@@ -1,8 +1,8 @@
 
 <!-- formularz logowania-->
 <?php
-include '../php/check_user_logged.php';
-include '../php/reset_ride_search.php';
+include 'php/check_user_logged.php';
+include 'php/reset_ride_search.php';
 ?>
 
 <div class="container-fluid" style="min-width: 250px;">

@@ -1,7 +1,6 @@
 <?php
 
 include 'db_connection.php';
-session_start();
 include 'user_data.php';
     
     $hour = intval(date("H")) + 1;

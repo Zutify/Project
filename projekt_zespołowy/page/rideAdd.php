@@ -79,7 +79,7 @@ unsetRideAddVariables();
                             <input id="seatsNumber" class="text-primary" type="number" min="0" max="10" name="places" placeholder="Ilość" style="border:none;">
                         </div>
                         <div class="col-8" id="seatsError" style="visibility: hidden;">
-                            <label class="h4 text-danger">Pole nie może być puste</label>
+                            <label id="seatsErrorMsg" class="h4 text-danger">Pole nie może być puste</label>
                         </div>
                         
                         <div class="col-6 h2 mt-3 mr-n3">Data i godzina</div>
@@ -100,7 +100,6 @@ unsetRideAddVariables();
             
             <div class="text-danger h3 mt-3">
                 <?php
-                session_start();
                 if(isset($_SESSION['addError']))
                     {
                         echo $_SESSION['addError'];
