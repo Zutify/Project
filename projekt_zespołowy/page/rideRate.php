@@ -13,65 +13,33 @@
 
     <div class="w-75 mx-auto ">
 
-        <form action="php/rating_add.php" method="POST">
-            <span class="user-rating"></span>
+    <div class="w-75 mx-auto ">
 
-            <h1 class="rate">Oceń przejazd</h1>
+<form>
+    <span class="user-rating"></span>
 
-            <div class="col-6">
-                <label for="5star" class="rate">5</label>
-            </div>
+    <h1 class="row">Oceń swój przejazd:</h1>
 
-            <div class="col-6">
-                <input type="radio" name="star" id="5star" value="5" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;"><span class="star"></span>
-            </div>
-
-
-            <div class="col-6">
-                <label for="4star" class="rate">4</label>
-            </div>
-
-            <div class="col-6">
-                <input type="radio" name="star" id="4star" value="4" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;">
-            </div>
-            <div class="col-6">
-                <label for="3star" class="rate">3</label>
-            </div>
-
-            <div class="col-6">
-                <input type="radio" name="star" id="3star" value="3" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;">
-            </div>
-
-
-            <div class="col-6">
-                <label for="2star" class="rate">2</label>
-            </div>
-
-            <div class="col-6">
-                <input type="radio" name="star" id="2star" value="2" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;">
-            </div>
-
-            <div class="col-6">
-                <label for="1star" class="rate">1</label>
-            </div>
-
-            <div class="col-6">
-                <input type="radio" name="star" id="1star" value="1" class="form-control form-control-lg" style="height: 80px; font-size: 20pt;">
-            </div>
-
-            <h1 class="rate">Komentarz</h1>
-
-            <div class="col-6">
-                <textarea name="driverDescription" rows="6" cols="33" style="border: none;"></textarea>
-            </div>
-
-
-
-            <div>
-                <input type="submit" value="DALEJ" name="submitRate" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 50px; margin-top: 150px;">
-            </div>
-        </form>
+    <div class="row rate">
+        <input type="radio" id="5star" name="rate" value="5" />
+        <label for="5star" title="text">5 stars</label>
+        <input type="radio" id="4star" name="rate" value="4" />
+        <label for="4star" title="text">4 stars</label>
+        <input type="radio" id="3star" name="rate" value="3" />
+        <label for="3star" title="text">3 stars</label>
+        <input type="radio" id="2star" name="rate" value="2" />
+        <label for="2star" title="text">2 stars</label>
+        <input type="radio" id="1star" name="rate" value="1" />
+        <label for="1star" title="text">1 star</label>
     </div>
 
 
+
+    <div>
+        <input type="submit" value="DALEJ" name="submitForget" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 50px; margin-top: 150px;">
+    </div>
+</div>
+
+</form>
+</div>
 </div>
