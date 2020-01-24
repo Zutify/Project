@@ -6,13 +6,15 @@
     <div class="mt-5 mb-5 ml-5">
         <a href="index.php" class="h4 text-dark">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            Wstecz
+            <a lang="pl">Wstecz</a>
+            <a lang="en">Back</a>
         </a>
     </div>
     
     <div class="mt-3 mb-3 ml-5">
         <div class="display-1 text-black">
-            <strong>Rejestracja</strong> 
+            <strong lang="pl">Rejestracja</strong>
+            <strong lang="en">Registration</strong> 
         </div>
     </div>
     
@@ -34,7 +36,7 @@
                 
             
             <div class="mt-5 mb-3">
-                <label for="firstName" class="h3">Imię</label>
+                <label for="firstName" class="h3"><a lang="pl">Imię</a><a lang="en">First name</a></label>
             </div>
                 
                     
@@ -49,7 +51,7 @@
                 
 	
 	    <div class="mt-5 mb-3">
-                <label for="lastName" class="h3">Nazwisko</label>
+                <label for="lastName" class="h3"><a lang="pl">Nazwisko</a><a lang="en">Last name</a></label>
             </div>
                 
                     
@@ -78,7 +80,7 @@
 
 
 	    <div class="mt-5 mb-3">
-                <label for="password" class="h3">Hasło</label>
+                <label for="password" class="h3"><a lang="pl">Hasło</a><a lang="en">Password</a></label>
             </div>
                 
                     
@@ -93,7 +95,7 @@
 
 
             <div class="mt-5 mb-3">
-                <label for="phoneNumber" class="h3">Numer telefonu</label>
+                <label for="phoneNumber" class="h3"><a lang="pl">Numer telefonu</a><a lang="en">Phone number</a></label>
             </div>
                 
                     
@@ -107,8 +109,12 @@
             </div>
                     
             <div class="mt-5 mb-3">
-                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 50px;">
+                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" lang="pl" style="height: 120px; font-size: 50px;">
+                <input type="submit" value="NEXT" name="submit" class="btn btn-success btn-lg btn-block" lang="en" style="height: 120px; font-size: 50px;">
             </div>
         </form>
     </div>
 </div>
+
+<script src="js/jquery.js"></script>
+<script src="js/changeLang.js"></script>

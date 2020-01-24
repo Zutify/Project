@@ -82,7 +82,7 @@ include 'php/change_ride_status.php';
                             <!-- linkowanie do innego pliku   tu /page/login.php -->
                             <a href="?page=login" class="text-white">
                                 <button type="button" class="btn btn-success w-50">
-                                    Zaloguj
+                                    <a lang="pl">Zaloguj</a><a lang="en">Log in</a>
                                 </button>
                             </a>
                         </div>
@@ -91,14 +91,18 @@ include 'php/change_ride_status.php';
                         <div>
                             <a href="?page=rejestracja" class="text-white">
                                 <button type="button" class="btn btn-success w-50">
-                                    Zarejestruj
+                                    <a lang="pl">Zarejestruj</a><a lang="en">Registration</a>
                                 </button>
                             </a>
                         </div>
                     </div>
+                    <div>
+                        <div style="margin-top:15px">
+                        <button id="switch-lang" class="btn btn-success"><p lang="pl">Polski</p><p lang="en">English</p></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
             <!--<div style="background-image:url('../style/img/rysunek.svg');width: 100%; height: 100%; background-size: cover; position: absolute;top:0; left:0; z-index:-1;background-color:#fff;">
         --><div style="background-image:url('style/img/rysunek.svg');width: 100%; height: 100%; background-size: cover; position: absolute;top:0; left:0; z-index:-1;background-color:#fff;">
             </div>
@@ -108,7 +112,9 @@ include 'php/change_ride_status.php';
         //zamknięcie else ( jeżeli nie ma $_GET('page') )
         endif;?>
         <script defer src="js/refreshRidesStatus.js"></script>
+        <script src="js/jquery.js"></script>
         <script src="js/jquery.cookie.js"></script>
+        <script src="js/changeLang.js"></script>
 </body>
 
 </HTML>

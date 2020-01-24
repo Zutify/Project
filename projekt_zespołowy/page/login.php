@@ -6,13 +6,15 @@
     <div class="mt-5 mb-5 ml-5">
         <a href="index.php" class="h4 text-dark">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            Wstecz
+            <a lang="pl">Wstecz</a>
+            <a lang="en">Back</a>
         </a>
     </div>
     
     <div class="mt-5 mb-5 ml-5">
         <div class="display-1 text-black">
-            <strong>Logowanie</strong> 
+            <strong lang="pl">Logowanie</strong>
+            <strong lang="en">Log in</strong> 
         </div>
     </div>
             
@@ -34,7 +36,7 @@
                 
             
             <div class="mt-5 mb-3">
-                <label for="password" class="h3 ">Hasło</label>
+                <label for="password" class="h3 "><a lang="pl">Hasło</a><a lang="en">Password</a></label>
             </div>
                 
                     
@@ -51,8 +53,11 @@
                 <ul  class="list-group">
                     <li class="list-group-item" style="border: none;">
                         <div class="h5">
-                            <a href="../index.php?page=passwordForget" class="text-dark">
+                            <a href="../index.php?page=passwordForget" class="text-dark" lang="pl">
                                 Przypomnij hasło
+                            </a>
+                            <a href="../index.php?page=passwordForget" class="text-dark" lang="en">
+                                Remind password
                             </a>
                         </div>
                     </li>
@@ -60,9 +65,13 @@
             </div>
                 
             <div >
-                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" style="height: 120px; font-size: 50px;">
+                <input type="submit" value="DALEJ" name="submit" class="btn btn-success btn-lg btn-block" lang="pl" style="height: 120px; font-size: 50px;">
+                <input type="submit" value="NEXT" name="submit" class="btn btn-success btn-lg btn-block" lang="en" style="height: 120px; font-size: 50px;">
             </div>
                 
         </form>
     </div>
 </div>
+
+<script src="js/jquery.js"></script>
+<script src="js/changeLang.js"></script>
