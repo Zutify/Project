@@ -108,6 +108,7 @@ include 'php/change_ride_status.php';
         //zamknięcie else ( jeżeli nie ma $_GET('page') )
         endif;?>
         <script defer src="js/refreshRidesStatus.js"></script>
+        <script src="js/jquery.cookie.js"></script>
 </body>
 
 </HTML>

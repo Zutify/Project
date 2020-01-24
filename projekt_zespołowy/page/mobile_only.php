@@ -18,38 +18,19 @@
     <div class='pt-1 mt-1'>
         <div class='display-2 text-center text-white'>ZUTify</div>
         <div class='pt-3 mt-3'>
-        <button type="button" class="btn btn-success" onclick="langChangePl()">PL</button>
-        <button type="button" class="btn btn-success" onclick="langChangeEng()">ENG</button>
+        <button id="switch-lang" class="btn btn-success"><p lang="pl">Polski</p><p lang="en">English</p></button>
     </div>
     </div>
     <div class='pt-2 mt-2'>
         <div class='display-4 text-center text-white'>
-        <p id="mobile_only"></p>
+        <p id="mobile_only" lang="pl">Tylko mobilnie</p>
+        <p id="mobile_only" lang="en">Mobile Only</p>
         </div>
     </div>
 </div>
 <div class='desktop_view'></div>   
 
-<script>
-//definiuje zawartość dla id
-var eng = {
-    mobile_only: "Mobile Only"
-}
-var pl = {
-    mobile_only: "Tylko mobilnie"
-}
 
-//default
-var lang = pl;
-document.getElementById("mobile_only").innerHTML = lang.mobile_only;
-
-//zmiana języka
-function langChangePl() {
-    var lang = pl;  
-    document.getElementById("mobile_only").innerHTML = lang.mobile_only;
-}
-function langChangeEng() {
-    var lang = eng; 
-    document.getElementById("mobile_only").innerHTML = lang.mobile_only;
-}
-</script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/changeLang.js"></script>

@@ -31,13 +31,19 @@ include 'php/reset_ride_search.php';
                     ?>
                 </div>
                 <div class="py-2">
-                    <a href="?page=editProfile" class="h3 text-body">
+                    <a href="?page=editProfile" class="h3 text-body" lang="pl">
                         Edytuj profil
+                    </a>
+                    <a href="?page=editProfile" class="h3 text-body" lang="en">
+                        Edit profile
                     </a>
                 </div>
                 <div class="py-2">
-                    <a href="php/logout.php" class="h3 text-body">
+                    <a href="php/logout.php" class="h3 text-body" lang="pl">
                         Wyloguj
+                    </a>
+                    <a href="php/logout.php" class="h3 text-body" lang="en">
+                        Log out
                     </a>
                 </div>
             </div>
@@ -50,7 +56,8 @@ include 'php/reset_ride_search.php';
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="?page=menu" class="text-body">Menu główne</a>
+                        <a href="?page=menu" class="text-body" lang="pl">Menu główne</a>
+                        <a href="?page=menu" class="text-body" lang="en">Main menu</a>
                     </strong>
                 </div>
             </div>
@@ -62,7 +69,8 @@ include 'php/reset_ride_search.php';
                 <div class="col-12 my-5">
                     <div class="display-4">
                         <strong>
-                            <a href="?page=rideAdd" class="text-body">Dodaj przejazd</a>
+                            <a href="?page=rideAdd" class="text-body" lang="pl">Dodaj przejazd</a>
+                            <a href="?page=rideAdd" class="text-body" lang="en">Add ride</a>
                         </strong>
                     </div>
                 </div>';
@@ -71,14 +79,23 @@ include 'php/reset_ride_search.php';
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="?page=rideMenu" class="text-body">Wyszukaj przejazd</a>
+                        <a href="?page=rideMenu" class="text-body" lang="pl">Wyszukaj przejazd</a>
+                        <a href="?page=rideMenu" class="text-body" lang="en">Search ride</a>
                     </strong>
                 </div>
             </div>
             <div class="col-12 my-5">
                 <div class="display-4">
                     <strong>
-                        <a href="?page=currentRides" class="text-body">Moje przejazdy</a>
+                        <a href="?page=currentRides" class="text-body" lang="pl">Moje przejazdy</a>
+                        <a href="?page=currentRides" class="text-body" lang="en">My rides</a>
+                    </strong>
+                </div>
+            </div>
+            <div class="col-12 my-5">
+                <div class="display-4">
+                    <strong>
+                        <button id="switch-lang" class="text-body"><p lang="pl">Polski</p><p lang="en">English</p></button>
                     </strong>
                 </div>
             </div>
@@ -110,3 +127,5 @@ include 'php/reset_ride_search.php';
         });
     });
 </script>
+
+<script src="js/changeLang.js"></script>

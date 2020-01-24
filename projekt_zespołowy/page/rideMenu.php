@@ -33,7 +33,8 @@ include 'php/reset_ride_search.php';
     <div class="w-100 h-50" style="min-height: 50vh">
         
         <div class="ml-5 mt-5">
-            <div class="display-2" ><strong>Dokąd jedziemy?</strong></div>
+            <div class="display-2" lang="pl"><strong>Dokąd jedziemy?</strong></div>
+            <div class="display-2" lang="en"><strong>Where are we going?</strong></div>
         </div>
         
         <!-- kontener zawierający opcje do wyboru pod mapą -->
@@ -44,7 +45,8 @@ include 'php/reset_ride_search.php';
                         <div class="h3 text-left">
                             <div class="col-12">
                                 <i class="fa fa-search" style="font-size: 36px;"></i>
-                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
+                                <input name="start" id="start" class="ml-2" placeholder="Miejsce wyjazdu" lang="pl" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
+                                <input name="start" id="start" class="ml-2" placeholder="Departure" lang="en" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
                             </div>
                         </div>
                     </button>
@@ -69,7 +71,8 @@ include 'php/reset_ride_search.php';
                                     if ($street->num_rows > 0) {
                                         $result = $street->fetch_assoc();
                                         echo'
-                                        <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">';
+                                        <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" lang="pl" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">
+                                        <input name="dest" id="dest" class="ml-2" placeholder="Destination" lang="en" style="background: transparent; font-size: 40px; border:none; font-color: black; outline: none;">';
                                     }
                                     else
                                         echo "błąd";
@@ -77,7 +80,8 @@ include 'php/reset_ride_search.php';
                                 else
                                 {
                                 echo'
-                                    <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" style="background: transparent; font-size: 40px; border:none; font-color: black;outline: none;">';
+                                    <input name="dest" id="dest" class="ml-2" placeholder="Miejsce docelowe" lang="pl" style="background: transparent; font-size: 40px; border:none; font-color: black;outline: none;">
+                                    <input name="dest" id="dest" class="ml-2" placeholder="Destination" lang="en" style="background: transparent; font-size: 40px; border:none; font-color: black;outline: none;">';
                                     
                                 }
                                 ?>
@@ -99,7 +103,8 @@ include 'php/reset_ride_search.php';
                 
                 <div class="my-5 d-flex justify-content-between">
                     <div class="row">
-                        <div class="col-12 h2 mt-3 mr-n3">Data i godzina</div>
+                        <div class="col-12 h2 mt-3 mr-n3" lang="pl">Data i godzina</div>
+                        <div class="col-12 h2 mt-3 mr-n3" lanf="en">Date and time</div>
                         <input class="col-5 h3 text-primary border-0 mt-3 mr-n5" type="date" id="datePicker" name="tripStartDate" min="2019-01-01" max="2020-12-31">
                         <input class="col-3 h3 text-primary border-0 mt-3 mr-n5"type="time" id="timePicker" name="tripStartTime">
                         <div class="col-8" id="dateError" style="visibility: hidden;">
@@ -120,7 +125,8 @@ include 'php/reset_ride_search.php';
                     <td class="">
                         <div class="h3 my-4">
                             <i class="fa fa-star" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="?page=favouritePlaces" class="ml-3 text-dark">Ulubione miejsca</a>
+                            <a href="?page=favouritePlaces" class="ml-3 text-dark" lang="pl">Ulubione miejsca</a>
+                            <a href="?page=favouritePlaces" class="ml-3 text-dark" lang="en">Favorite places</a>
                         </div>
                     </td>
                 </tr>
@@ -128,7 +134,8 @@ include 'php/reset_ride_search.php';
                     <td class="">
                         <div class="h3 my-4 ml-1"> 
                             <i class="fa fa-map-marker-alt" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="" class="ml-3 text-dark">Ostatnio wyszukiwane</a>
+                            <a href="" class="ml-3 text-dark" lang="pl">Ostatnio wyszukiwane</a>
+                            <a href="" class="ml-3 text-dark" lang="en">Recently searched</a>
                             </div>
                     </td>
                 </tr>
@@ -136,7 +143,8 @@ include 'php/reset_ride_search.php';
                     <td class="">
                         <div class="h3 my-4">
                             <i class="fa fa-car" aria-hidden="true" style="font-size: 36px;"></i>
-                            <a href="?page=ridesList" class="ml-3 text-dark">Aktualne przejazdy</a>
+                            <a href="?page=ridesList" class="ml-3 text-dark" lang="pl">Aktualne przejazdy</a>
+                            <a href="?page=ridesList" class="ml-3 text-dark" lang="en">Current journeys</a>
                         </div>
                     </td>
                 </tr>
@@ -146,6 +154,7 @@ include 'php/reset_ride_search.php';
 </div>
         
 <script src="js/jquery.js"></script>
+<script src="js/changeLang.js"></script>
 <script src="js/openSideMenu.js"></script>
 <script src="js/rideMenuForm.js"></script>
 <script src="js/focusInputButtons.js"></script>
